@@ -6,9 +6,15 @@
     <nav>
       <ul class="nav navbar-nav navbar-right">
             <% if customer_signed_in? %>
+          <li class="nav_txt">ようこそ!!</br><%= current_customer.last_name %><%= current_customer.first_name %>さん</li>
+          <li><a href="" class="nav_txt">マイページ</a></li>
+
           <li><a href="" class="nav_txt">商品一覧</a></li>
 
+          <li><a href="" class="nav_txt">カート一覧</a></li>
+
           <li class="nav_txt"><%= link_to 'ログアウト', destroy_customer_session_path, method: :delete %></li>
+
 
 
         <% else %>
