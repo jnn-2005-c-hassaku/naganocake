@@ -1,28 +1,29 @@
 <header class="navbar navbar-fixed-top ">
   <div class="container">
+    <p id= "notice" class="notice"><%= notice %></p>
     <nav class='nav navbar-nav navbar-left' >
       <%= image_tag('logo.png', class: "logo_img") %>
     </nav>
     <nav>
       <ul class="nav navbar-nav navbar-right">
             <% if customer_signed_in? %>
-          <li class="nav_txt">ようこそ!!</br><%= current_customer.last_name %><%= current_customer.first_name %>さん</li>
+          <li><p class="customer-name_txt brown_txt bold">ようこそ、<%= current_customer.last_name %><%= current_customer.first_name %>さん！</p></li>
           <li><a href="" class="nav_txt">マイページ</a></li>
 
           <li><a href="" class="nav_txt">商品一覧</a></li>
 
           <li><a href="" class="nav_txt">カート一覧</a></li>
 
-          <li class="nav_txt"><%= link_to 'ログアウト', destroy_customer_session_path, method: :delete %></li>
+          <li><%= link_to 'ログアウト', destroy_customer_session_path, method: :delete, class: "nav_txt" %></li>
 
 
 
         <% else %>
           <li><a href="" class="nav_txt">商品一覧</a></li>
 
-          <li class="nav_txt"><%= link_to '新規登録', new_customer_registration_path %></li>
+          <li><%= link_to '新規登録', new_customer_registration_path, class: "nav_txt" %></li>
 
-          <li class="nav_txt"><%= link_to 'ログイン', new_customer_session_path %></li>
+          <li><%= link_to 'ログイン', new_customer_session_path, class: "nav_txt" %></li>
     <% end %>
       </ul>
 
