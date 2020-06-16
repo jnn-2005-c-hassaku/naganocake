@@ -5,10 +5,22 @@
     </nav>
     <nav>
       <ul class="nav navbar-nav navbar-right">
+            <% if customer_signed_in? %>
           <li><a href="" class="nav_txt">商品一覧</a></li>
-          <li><a href="" class="nav_txt">新規登録</a></li>
-          <li><a href="" class="nav_txt">ログイン</a></li>
+
+          <li class="nav_txt"><%= link_to 'ログアウト', destroy_customer_session_path, method: :delete %></li>
+
+
+        <% else %>
+          <li><a href="" class="nav_txt">商品一覧</a></li>
+
+          <li class="nav_txt"><%= link_to '新規登録', new_customer_registration_path %></li>
+
+          <li class="nav_txt"><%= link_to 'ログイン', new_customer_session_path %></li>
+    <% end %>
       </ul>
+
     </nav>
+
   </div>
 </header>
