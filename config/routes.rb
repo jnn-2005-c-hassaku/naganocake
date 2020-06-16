@@ -3,4 +3,5 @@ Rails.application.routes.draw do
     registrations: 'customers/registrations',
     sessions: 'customers/sessions'
   }
+  root 'home#top'
 end
