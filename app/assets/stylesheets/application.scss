@@ -16,11 +16,11 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
+/*--------------共通（字体や色など）--------------------*/
 .no-gutters {
   margin:0;
   padding:0;
 }
- 
 .no-gutters　> .col,
 .no-gutters　> [class*="col-"] {
   margin:0;
@@ -44,22 +44,13 @@ a {
 	text-decoration: none;
 	font-weight: bold;
 }
+a:hover {
+	text-decoration: none;
+	color: #9c7762;
+}
 h2 {
 	font-size: 20px;
 	padding: 10px;
-}
-header{
-	width: 100%;
-	background-color: #EEE2D3;
-	padding: 10px 0px;
-}
-.customer-name_txt {
-	margin-top: 20px;
-	margin-right: 10px;
-}
-.notice {
-	color: #fff;
-	font-weight: 600;
 }
 .midashi_txt {
 	color: #E7B091;
@@ -115,11 +106,27 @@ header{
 .orange_bg {
 	background-color: #E7B091;
 }
+/*--------------共通(ヘッダー用）--------------------*/
+header{
+	width: 100%;
+	background-color: #EEE2D3;
+	padding: 10px 0px;
+}
+.customer-name_txt {
+	margin-top: 20px;
+	margin-right: 10px;
+}
+.notice {
+	color: #fff;
+	font-weight: 600;
+}
+
+/*--------------サイドバー--------------------*/
 .sidebar {
 	width: 100%;
 	text-align: center;
 	padding-top: 10%;
-	height: 130vh;
+	height: 160vh;
 }
 .sidebar_fixed {
   position: sticky;
@@ -141,6 +148,7 @@ header{
 .category {
 	padding: 0px;
 }
+/*--------------トップページ--------------------*/
 .main_visual {
 	position: relative;
 }
@@ -152,6 +160,7 @@ header{
 	bottom: 30px;
 	left: 30px;
 }
+/*--------------商品一覧--------------------*/
 .product_img {
 	width: 100%;
 }
@@ -160,11 +169,69 @@ header{
 	margin: 20px 0px;
 }
 
-
+.product_link p:hover {
+	color: #9c7762;
+}
+/*--------------フッター--------------------*/
 footer {
 	background-color: #EEE2D3;
 	padding-top: 10px;
 }
+/*--------------共通（フォーム用）--------------------*/
+
+.form {
+	margin: 10% 0px;
+}
+.form_midashi {
+	padding: 20px 0px;
+}
+.field {
+	margin: 2% 0px;
+}
+.form_cont {
+	width: 60%;
+	margin: 0 auto;
+}
+.form_label {
+	width: 100%;
+	font-size: 15px;
+	color: #C39C89;
+	padding: 5px;
+}
+/*自動入力時の背景色をなくす*/
+input:-webkit-autofill {
+animation-name: onAutoFillStart;
+transition: background-color 50000s ease-in-out 0s;
+}
+.form_input {
+	width: 100%;
+	padding: 10px;
+	border-radius: 15px;
+	border: solid 3px #E7B091;
+}
+.form_input_s,
+.form_submit{
+	width: 49.3%;
+	padding: 10px;
+	border-radius: 15px;
+	border: solid 3px #E7B091;
+}
+.form_submit {
+	background-color: #E7B091;
+}
+.form_input:focus,
+.form_input_s:focus{
+	outline: none;
+	border: solid 3px #de8152;
+}
+.actions {
+	text-align: center;
+	margin: 10%;
+}
+.form_link {
+	text-align: center;
+}
+/*--------------モバイル版--------------------*/
 
 @media(max-width: 770px) {
 .txtxs {
@@ -193,5 +260,12 @@ footer {
 }
 .product_link p {
 	text-align: left;
+}
+.product_link p:hover {
+	color: #9c7762;
+}
+.form_cont {
+	width: 90%;
+	margin: 0 auto;
 }
 }
