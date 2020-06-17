@@ -1,68 +1,67 @@
-  <div class="container">
     <div class="row">
       <div class="form">
         <h2 class="form_midashi midashi_txt center bold">新規登録</h2>
-        <form class="form_cont">
-          <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <div class="form_cont">
+          <%= form_for(resource, as:resource_name, url: registration_path(resource_name)) do |f| %>
           <%= render "customers/shared/error_messages", resource: resource %>
 
-
           <div class="field">
-            <%= f.label :last_name, class: "form_label" %>
+            <%= f.label :last_name, class: "form_label" %><br />
             <%= f.text_field :last_name, autofocus: true, autocomplete:"last_name", class: "form_input_s"%>
-            <%= f.label :first_name, class: "form_label" %>
+
+            <%= f.label :first_name, class: "form_label" %><br />
             <%= f.text_field :first_name, autofocus: true, autocomplete:"first_name", class: "form_input_s" %>
           </div>
 
           <div class="field">
-            <%= f.label :last_name_kana, class: "form_label" %>
+            <%= f.label :last_name_kana, class: "form_label" %><br />
             <%= f.text_field :last_name_kana, autofocus: true, autocomplete:"last_name_kana" , class: "form_input_s"%>
-            <%= f.label :first_name_kana, class: "form_label" %>
+
+            <%= f.label :first_name_kana, class: "form_label" %><br />
             <%= f.text_field :first_name_kana, autofocus: true, autocomplete:"first_name_kana", class: "form_input_s"%>
           </div>
 
           <div class="field">
-            <%= f.label :postcode, class: "form_label" %>
+            <%= f.label :postcode, class: "form_label" %><br />
             <%= f.text_field :postcode, autofocus: true, autocomplete: "postcode", class: "form_input" %>
           </div>
 
           <div class="field">
-            <%= f.label :address, class: "form_label" %>
+            <%= f.label :address, class: "form_label" %><br />
             <%= f.text_field :address, autofocus: true, autocomplete: "address", class: "form_input" %>
           </div>
 
 
           <div class="field">
-            <%= f.label :phone_number, class: "form_label" %>
+            <%= f.label :phone_number, class: "form_label" %><br />
             <%= f.text_field :phone_number, autofocus: true, autocomplete: "phone_number", class: "form_input" %>
           </div>
 
 
           <div class="field">
-            <%= f.label :email, class: "form_label" %>
+            <%= f.label :email, class: "form_label" %><br />
             <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form_input" %>
           </div>
 
           <div class="field">
-            <%= f.label :password, class: "form_label" %>
+            <%= f.label :password, class: "form_label" %><br />
             <% if @minimum_password_length %>
             <em class="brown_txt">(<%= @minimum_password_length %> 文字以内)</em>
-            <% end %><br />
             <%= f.password_field :password, autocomplete: "new-password", class: "form_input" %>
+            <% end %>
           </div>
 
           <div class="field">
-            <%= f.label :password_confirmation, class: "form_label" %>
+            <%= f.label :password_confirmation, class: "form_label" %><br />
             <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form_input" %>
           </div>
 
           <div class="actions">
-            <%= f.submit "送信", class: "form_submit white_txt bold" %>
+            <%= f.submit "Sign up", class: "form_submit white_txt bold" %>
           </div>
           <% end %>
 
           <%= render "customers/shared/links" %>
-        </form>
+        </div>
       </div>
     </div>
-  </div>

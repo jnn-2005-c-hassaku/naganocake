@@ -1,16 +1,16 @@
-<div class="container">
   <div class="row">
     <div class="form">
       <h2 class="form_midashi midashi_txt center bold">ログイン</h2>
-      <form class="form_cont">
+      <div class="form_cont">
+
         <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <div class="field">
-          <%= f.label :email, class: "form_label" %>
+          <%= f.label :email, class: "form_label" %><br />
           <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form_input" %>
         </div>
 
         <div class="field">
-          <%= f.label :password, class: "form_label" %>
+          <%= f.label :password, class: "form_label" %><br />
           <%= f.password_field :password, autocomplete: "current-password", class: "form_input" %>
         </div>
 
@@ -27,8 +27,7 @@
         <% end %>
 
         <%= render "customers/shared/links" %>
-      </form>
+      </div>
     </div>
   </div>
-</div>
 
