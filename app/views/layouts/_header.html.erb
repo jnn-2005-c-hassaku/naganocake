@@ -16,7 +16,16 @@
 
           <li><%= link_to 'ログアウト', destroy_customer_session_path, method: :delete, class: "nav_txt" %></li>
 
+          <% elsif admin_signed_in? %>
+          <li><a href="" class="nav_txt">商品一覧</a></li>
 
+          <li><a href="" class="nav_txt">会員一覧</a></li>
+
+          <li><a href="" class="nav_txt">注文一覧</a></li>
+
+          <li><a href="" class="nav_txt">ジャンル一覧</a></li>
+
+          <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "nav_txt" %></li>
 
         <% else %>
           <li><a href="" class="nav_txt">商品一覧</a></li>
