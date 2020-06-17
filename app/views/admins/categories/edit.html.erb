@@ -1,0 +1,19 @@
+<div>
+    <h2>ジャンル編集</h2>
+    <%= form_for (@category), url: admins_category_path do |f| %>
+    <div class="field">
+      <%= f.label :name %>
+      <%= f.text_field :name, class: "name" %>
+    </div>
+    <div class="field">
+      <%= f.radio_button :active_status, :true %>
+      <%= f.label :active_status, "有効", {value: :true, style: "display: inline-block;"} %>
+      <%= f.radio_button :active_status, :false %>
+      <%= f.label :active_status, "無効", {value: :false, style: "display: inline-block;"} %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+    <% end %>
+  </div>
