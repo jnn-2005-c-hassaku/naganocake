@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_17_070204) do
+ActiveRecord::Schema.define(version: 2020_06_17_093518) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -22,6 +22,13 @@ ActiveRecord::Schema.define(version: 2020_06_17_070204) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_admins_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "name"
+    t.boolean "active_status", default: true
   end
 
   create_table "customers", force: :cascade do |t|
@@ -42,6 +49,26 @@ ActiveRecord::Schema.define(version: 2020_06_17_070204) do
     t.string "phone_number"
     t.index ["email"], name: "index_customers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_customers_on_reset_password_token", unique: true
+  end
+
+  create_table "products", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.integer "category_id"
+    t.integer "price"
+    t.string "image_id"
+    t.boolean "sale_status", default: true
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "shipping_addresses", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "customer_id"
+    t.string "address"
+    t.string "postcode"
+    t.string "direction"
   end
 
 end
