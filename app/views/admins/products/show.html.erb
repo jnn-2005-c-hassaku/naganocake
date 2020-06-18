@@ -1,0 +1,29 @@
+<table>
+    <tbody>
+
+      <tr>
+        <td><%= attachment_image_tag(@product, :image, :fill, 100, 100, fallback: "no_image.jpg") %></td>
+
+        <td><%= @product.name %></td>
+
+        <td><%= @product.description %></td>
+
+
+        <td><%= @product.price %></td>
+
+        <td><%= @product.category_id %></td>
+
+                  <td><% if @product.sale_status == true %>
+          <p>販売中</p>
+          <% else %>
+         <p>売り切れ</p>
+        <% end %>
+      </td>
+
+        <td><%= link_to '編集', edit_admins_product_path(@product) %></td>
+      </tr>
+
+    </tbody>
+  </table>
+
+  <%= link_to "Back", admins_products_path, class: "back" %>
