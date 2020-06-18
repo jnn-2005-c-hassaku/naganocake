@@ -3,47 +3,54 @@
     <p id= "notice" class="notice"><%= notice %></p>
     <nav class='nav navbar-nav navbar-left' >
       <%= image_tag('logo.png', class: "logo_img") %>
-    </nav>
+    </nav><!--ロゴ-->
 
-    <nav>
+    <% if admin_signed_in?  %>
+    <form role="search" method="get" class="search_form">
+      <div class="search_cont">
+        <input type="search" class="search_field" placeholder="Search" value="" name="s">
+        <span class="search_icon"><i class="fa fa-search"></i></span>
+      </div>
+    </form>
+    <% end %><!--検索フォーム-->
+
+
+    <nav class="collapse navbar-collapse" id="navbarList">
       <ul class="nav navbar-nav navbar-right">
-            <% if customer_signed_in? %>
-          <li><p class="customer-name_txt brown_txt bold">ようこそ、<%= current_customer.last_name %><%= current_customer.first_name %>さん！</p></li>
-          <li><a href="" class="nav_txt">マイページ</a></li>
+        <% if customer_signed_in? %>
+        <li><p class="customer-name_txt brown_txt bold">ようこそ、<%= current_customer.last_name %><%= current_customer.first_name %>さん！</p></li>
+        <li><a href="" class="nav_txt">マイページ</a></li>
 
-          <li><a href="" class="nav_txt">商品一覧</a></li>
+        <li><a href="" class="nav_txt">商品一覧</a></li>
 
-          <li><a href="" class="nav_txt">カート一覧</a></li>
+        <li><a href="" class="nav_txt">カート一覧</a></li>
 
-          <li><%= link_to 'ログアウト', destroy_customer_session_path, method: :delete, class: "nav_txt" %></li>
+        <li><%= link_to 'ログアウト', destroy_customer_session_path, method: :delete, class: "nav_txt" %></li><!--顧客ナビゲーション -->
 
-          <% elsif admin_signed_in? %>
-          <li><a href="" class="nav_txt">商品一覧</a></li>
+        <% elsif admin_signed_in? %>
+        <li><a href="" class="nav_txt">商品一覧</a></li>
 
-          <li><a href="" class="nav_txt">会員一覧</a></li>
+        <li><a href="" class="nav_txt">会員一覧</a></li>
 
-          <li><a href="" class="nav_txt">注文一覧</a></li>
+        <li><a href="" class="nav_txt">注文一覧</a></li>
 
-          <li><%= link_to 'ジャンル一覧', admins_categories_path, class: "nav_txt" %></li>
+        <li><%= link_to 'ジャンル一覧', admins_categories_path, class: "nav_txt" %></li>
 
-          <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "nav_txt" %></li>
-          <form role="search" method="get" class="search_form">
-            <div class="search_cont">
-              <input type="search" class="search_field" placeholder="Search" value="" name="s">
-             <span class="search_icon"><i class="fa fa-search"></i></span>
-           </div>
-          </form>
+        <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "nav_txt" %></li><!--管理者ナビゲーション-->
+
 
         <% else %>
-          <li><a href="" class="nav_txt">商品一覧</a></li>
+        <li><a href="" class="nav_txt">商品一覧</a></li>
 
-          <li><%= link_to '新規登録', new_customer_registration_path, class: "nav_txt" %></li>
+        <li><%= link_to '新規登録', new_customer_registration_path, class: "nav_txt" %></li>
 
-          <li><%= link_to 'ログイン', new_customer_session_path, class: "nav_txt" %></li>
-    <% end %>
+        <li><%= link_to 'ログイン', new_customer_session_path, class: "nav_txt" %></li>
+        <% end %><!--共通ナビ-->
       </ul>
-
     </nav>
+    <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarList" aria-controls="navbarList" aria-expanded="false" aria-label="ナビゲーションの切替">
+      <span><i class="fas fa-bars"></i></span>
+    </button><!--ハンバーガーメニュー-->
 
   </div>
 </header>
