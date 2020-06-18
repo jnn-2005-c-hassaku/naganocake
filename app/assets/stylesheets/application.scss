@@ -73,7 +73,7 @@ h2 {
 	font-size: 20px;
 }
 .header_wrap {
-	height: 80px;
+	height: 70px;
 }
 .logo_img {
 	width: 170px;
@@ -212,9 +212,7 @@ header{
 .sidebar li {
 	margin: 10px 0px;
 }
-.category {
-	padding: 0px;
-}
+
 /*--------------トップページ--------------------*/
 .main_visual {
 	position: relative;
@@ -308,6 +306,9 @@ transition: background-color 50000s ease-in-out 0s;
 }
 
 /*--------------カテゴリー一覧--------------------*/
+.category {
+	margin: 5% 0px;
+}
 .category_table {
 	width: 60%;
 }
@@ -317,9 +318,6 @@ transition: background-color 50000s ease-in-out 0s;
 
 @media(max-width: 1000px) {
 
-.header_wrap {
-	height: 80px;
-}
 .nav_txt {
 	color: #C39C89;
 	font-size: 13px;
@@ -345,9 +343,6 @@ table {
 }
 .txtm {
 	font-size: 15px;
-}
-.header_wrap {
-	height: 200px;
 }
 
 .product_index {
