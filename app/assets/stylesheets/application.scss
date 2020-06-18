@@ -133,7 +133,10 @@ h2 {
 }
 /*--------------共通のテーブル--------------------*/
 .table {
-	margin: 20px 0px;
+	margin: 20px auto;
+}
+.thead {
+	background-color: #EEE2D3;
 }
 
 /*--------------共通(ヘッダー用）--------------------*/
@@ -295,7 +298,9 @@ transition: background-color 50000s ease-in-out 0s;
 }
 
 /*--------------カテゴリー一覧--------------------*/
-
+.category_table {
+	width: 60%;
+}
 /*--------------配送先ー一覧--------------------*/
 
 /*--------------モバイル版--------------------*/
@@ -303,7 +308,7 @@ transition: background-color 50000s ease-in-out 0s;
 @media(max-width: 1000px) {
 
 .header_wrap {
-	height: 135px;
+	height: 80px;
 }
 }
 
@@ -323,7 +328,7 @@ table {
 	font-size: 15px;
 }
 .header_wrap {
-	height: 400px;
+	height: 350px;
 }
 
 .product_index {
@@ -345,6 +350,9 @@ table {
 .form_cont {
 	width: 90%;
 	margin: 0 auto;
+}
+.category_table {
+	width: 100%;
 }
 
 }
