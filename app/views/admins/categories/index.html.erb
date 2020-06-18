@@ -1,32 +1,33 @@
-<div class='row'>
+<div class="row category">
+
+  <h2 class="midashi_txt">ジャンルの追加</h2>
 
   <div class="form_cont">
-    <h2>ジャンル追加</h2>
     <%= form_for (@category), url: admins_categories_path do |f| %>
     <div class="field">
-      <%= f.label :name %>
-      <%= f.text_field :name, class: "name" %>
+      <%= f.label :name, "ジャンル名", class: "form_label" %>
+      <%= f.text_field :name, class: "form_input" %>
     </div>
-    <div class="field">
+    <div class="field brown_txt">
       <%= f.radio_button :active_status, :true %>
       <%= f.label :active_status, "有効", {value: :true, style: "display: inline-block;"} %>
       <%= f.radio_button :active_status, :false %>
       <%= f.label :active_status, "無効", {value: :false, style: "display: inline-block;"} %>
     </div>
 
-    <div class="actions">
-      <%= f.submit %>
+    <div class="category_actions">
+      <%= f.submit "登録", class: "form_submit_s white_txt bold" %>
     </div>
     <% end %>
   </div>
 
 
-  <table class='table'>
+  <table class="table">
     <thead>
       <tr>
-        <th>ジャンル</th>
-        <th>有効</th>
-        <th colspan="3"></th>
+        <th class="brown_txt txts">ジャンル名</th>
+        <th class="brown_txt txts">ステータス</th>
+        <th colspan="2"></th>
       </tr>
     </thead>
 
@@ -36,12 +37,14 @@
         <td><%= category.name %></td>
         <td>
           <% if category.active_status == true %>
-          <p>有効</p>
+          <p class="true_txt">有効</p>
           <% else %>
-         <p>無効</p>
+         <p class="false_txt">無効</p>
         <% end %>
       </td>
-        <td><%= link_to '編集', edit_admins_category_path(category) %></td>
+        <td>
+          <%= link_to '編集', edit_admins_category_path(category), class: "edit_btn" %>
+          </td>
       </tr>
       <% end %>
     </tbody>

@@ -72,8 +72,8 @@ h2 {
 	height: 80px;
 }
 .logo_img {
-	width: 200px;
-	margin: 5px;
+	width: 170px;
+	margin: 5px 0px;
 }
 .nav_txt {
 	color: #C39C89;
@@ -103,9 +103,39 @@ h2 {
 .orange_txt {
 	color:  #E7B091;
 }
+.true_txt {
+	color: #ed7b79;
+}
+.false_txt {
+	color: #91c9e7;
+}
 .orange_bg {
 	background-color: #E7B091;
 }
+.edit_btn {
+	color: #E7B091;
+	padding: 5px 10px;
+	border-radius: 15px;
+	border: solid 3px #E7B091;
+}
+.edit_btn:hover {
+	border: solid 3px #9c7762;
+}
+.destroy_btn {
+	color: #91c9e7;
+	padding: 5px 10px;
+	border-radius: 15px;
+	border: solid 3px #91c9e7;
+}
+.destroy_btn:hover {
+	color: #5f8396;
+	border: solid 3px #5f8396;
+}
+/*--------------共通のテーブル--------------------*/
+.table {
+	margin: 20px 0px;
+}
+
 /*--------------共通(ヘッダー用）--------------------*/
 header{
 	width: 100%;
@@ -219,8 +249,16 @@ transition: background-color 50000s ease-in-out 0s;
 .form_submit {
 	background-color: #E7B091;
 }
+.form_submit_s {
+	background-color: #E7B091;
+	padding: 10px 20px;
+	border-radius: 15px;
+	border: solid 3px #E7B091;
+}
 .form_input:focus,
-.form_input_s:focus{
+.form_input_s:focus,
+.form_submit:focus,
+.form_submit_s:focus{
 	outline: none;
 	border: solid 3px #de8152;
 }
@@ -231,9 +269,25 @@ transition: background-color 50000s ease-in-out 0s;
 .form_link {
 	text-align: center;
 }
+
+/*--------------カテゴリー一覧--------------------*/
+
+/*--------------配送先ー一覧--------------------*/
+
 /*--------------モバイル版--------------------*/
 
+@media(max-width: 1000px) {
+
+.header_wrap {
+	height: 135px;
+}
+}
+
 @media(max-width: 770px) {
+
+table {
+	width: 80%;
+}
 .txtxs {
 	font-size: 10px;
 }
@@ -268,4 +322,5 @@ transition: background-color 50000s ease-in-out 0s;
 	width: 90%;
 	margin: 0 auto;
 }
+
 }
