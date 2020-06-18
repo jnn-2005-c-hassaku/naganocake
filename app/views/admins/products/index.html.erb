@@ -1,35 +1,51 @@
-<table>
+<div class="row product">
+
+  <h2 class="midashi_txt">ジャンルの追加</h2>
+  <div>
+     <%= link_to '商品登録', new_admins_product_path, class: "form_submit white_txt" %>
+  </div>
+  <table class="table product_table">
+    <thead class="thead">
+      <tr>
+        <th class="brown_txt txts">写真</th>
+        <th class="brown_txt txts">商品名</th>
+        <th class="brown_txt txts">説明</th>
+        <th class="brown_txt txts">単価</th>
+        <th class="brown_txt txts">税込</th>
+        <th class="brown_txt txts">商品名</th>
+        <th class="brown_txt txts">カテゴリー</th>
+        <th class="brown_txt txts"></th>
+      </tr>
+    </thead>
+
     <tbody>
       <% @products.each do |product| %>
       <tr>
-        <td><%= attachment_image_tag(product, :image, :fill, 100, 100, fallback: "no_image.jpg") %></td>
-
-        <td><%= product.name %></td>
-
-        <td><%= product.description %></td>
+       <td><%= attachment_image_tag(product, :image, :fill, 100, 100, fallback: "no_image.jpg") %></td>
+         <td><%= product.name %></td>
+         <td><%= product.description %></td>
 
 
-        <td><%= product.price %>円</td>
+         <td><%= product.price %>円</td>
 
-        <td><%= product.price_with_tax(product.price) %>円</td>
-        <%#税込価格表示%>
+         <td><%= product.price_with_tax(product.price) %>円</td>
+         <%#税込価格表示%>
 
-        <td><%= product.category.name %></td>
+         <td><%= product.category.name %></td>
 
-          <td><% if product.sale_status == true %>
+         <td><% if product.sale_status == true %>
           <p>販売中</p>
           <% else %>
-         <p>売り切れ</p>
-        <% end %>
-      </td>
-
-
-        <td><%= link_to '詳細', admins_product_path(product) %></td>
-
-
+          <p>売り切れ</p>
+          <% end %>
+        </td>
+          <td><%= link_to '詳細', admins_product_path(product) , class: "show_btn" %></td>
       </tr>
       <% end %>
     </tbody>
   </table>
+ 
+</div>
 
-<%= link_to '商品登録', new_admins_product_path %>
+
+

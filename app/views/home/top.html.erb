@@ -1,16 +1,6 @@
 <div class="container">
 <div class="row">
-        <div class="col-sm-3 no-gutters">
-        <div class="sidebar orange_bg">
-            <%= image_tag('logo.png', class: "sidebar_img") %>
-            <h2 class="category_txt white_txt bold">ジャンル検索</h2>
-            <ul class="center">
-                <% @categories.each do |category| %>
-                <li><a href="" class="white_txt"><%= category.name %></a></li>
-                <% end %>
-            </ul>
-        </div>
-        </div>
+        <%= render "home/sidebar", categories: Category.all %>
         <div class="col-sm-8 no-gutters">
         <div class="main_visual">
           <%= image_tag('main.jpg', class: "main_img") %>
