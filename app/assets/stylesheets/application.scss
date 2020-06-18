@@ -150,6 +150,30 @@ header{
 	color: #fff;
 	font-weight: 600;
 }
+/*--------------サーチフォーム）--------------------*/
+.search_form {
+    position: absolute;
+   	bottom: -40px;
+    right: 15%;
+}
+.search_field {
+	border-radius: 15px;
+	border: 2px solid #CCCCCC;
+}
+.search_field:focus {
+	outline: none;
+	border-radius: 15px;
+	border: 2px solid #777;
+}
+.search_cont {
+	position: relative;
+}
+.search_icon {
+	color:  #CCCCCC;
+	position: absolute;
+	right: 10px;
+	top: 4px;
+}
 
 /*--------------サイドバー--------------------*/
 .sidebar {
