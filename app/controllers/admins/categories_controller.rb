@@ -1,5 +1,5 @@
 class Admins::CategoriesController < ApplicationController
-	before_action :authenticate_admin!
+	before_action :authenticate_admin!, only: [:index, :create, :edit, :destroy]
 
 	def index
 		@category = Category.new
@@ -15,6 +15,10 @@ class Admins::CategoriesController < ApplicationController
 			@categories = Category.all
 			render 'index'
 		end
+	end
+	def show
+		@category = Category.find(params[:id])
+		@products = @category.products
 	end
 
 	def edit

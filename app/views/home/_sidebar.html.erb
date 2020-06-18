@@ -4,7 +4,10 @@
             <h2 class="category_txt white_txt bold">ジャンル検索</h2>
             <ul class="center">
                 <% categories.each do |category| %>
-                <li><a href="" class="white_txt"><%= category.name %></a></li>
+                    <li><%=link_to admins_category_path(category),class: "white_txt" do %>
+                         <%= category.name %>
+                    </li>
+                    <% end %>
                 <% end %>
             </ul>
         </div>
