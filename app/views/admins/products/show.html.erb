@@ -23,6 +23,9 @@
         <td><%= link_to '編集', edit_admins_product_path(@product) %></td>
       </tr>
 
+         <td><%= link_to "削除する", admins_product_path(@product), method: :delete, "data-confirm" => 'Are you sure?', class: "destroy_btn" %>
+              </td>
+
     </tbody>
   </table>
 
