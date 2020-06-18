@@ -118,6 +118,16 @@ h2 {
 .edit_btn:hover {
 	border: solid 3px #9c7762;
 }
+.show_btn {
+	color: #E7B091;
+	padding: 5px 10px;
+	border-radius: 15px;
+	border: solid 3px #E7B091;
+}
+.show_btn:hover {
+	border: solid 3px #9c7762;
+}
+
 .destroy_btn {
 	color: #91c9e7;
 	padding: 5px 10px;
@@ -306,11 +316,18 @@ transition: background-color 50000s ease-in-out 0s;
 }
 
 /*--------------カテゴリー一覧--------------------*/
-.category {
+
 	margin: 5% 0px;
 }
 .category_table {
 	width: 60%;
+}
+
+.border {
+	border-bottom: 1px solid #cccccc;
+}
+.product_data {
+	margin: 20px 0px;
 }
 /*--------------配送先ー一覧--------------------*/
 

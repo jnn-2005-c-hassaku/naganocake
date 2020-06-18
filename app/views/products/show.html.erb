@@ -1,22 +1,11 @@
 <div class="container">
 <div class="row">
-        <div class="col-sm-3 no-gutters">
-        <div class="sidebar orange_bg">
-            <%= image_tag('logo.png', class: "sidebar_img") %>
-            <h2 class="category_txt white_txt bold">ジャンル検索</h2>
-            <ul class="center">
-                <% @categories.each do |category| %>
-                <li><a href="" class="white_txt"><%= category.name %></a></li>
-                <% end %>
-            </ul>
-        </div>
-        </div>
+         <%= render "home/sidebar", categories: Category.all %>
         <div class="col-sm-8 no-gutters">
           <%= form_for(@product) do |f| %>
         <tr>
-         <td><%= link_to(product_path(@product)) do %>
+         <td class="col-md-5" >
                 <%= attachment_image_tag @product, :image, :fill, 200, 200, format: 'jpeg', class: "img-square pull-left profile-img", fallback: "purin.jpg" %>
-                <% end %>
           </td>
           <td>
            <h1><%= @product.name %></h1>
@@ -24,10 +13,12 @@
           <td>
            <%= @product.description %><br>
           </td>
-          <td>
-            ¥<%= @product.price %>(税込)
-          </td>
-          <p>ここに数を入力</p>
+          <td>¥<%= @product.price_with_tax(@product.price) %>円(税込）</td>
+          <td class=“field”>
+            <%= f.label :sale_status, "数量" %>
+            <%= f.select :sale_status, [["1",1],["2",2]] %>
+         </td>
+
 
           <td>
             <%= f.submit "カートに入れる", class: "btn btn-primary col-xs-12" %>
