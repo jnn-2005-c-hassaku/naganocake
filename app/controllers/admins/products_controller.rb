@@ -7,10 +7,12 @@ end
 
 def index
 	@products = Product.all
+
 end
 
 def new
 	@product = Product.new
+	@categories = Category.all
 end
 
 
@@ -23,6 +25,7 @@ end
 
 def edit
 	@product = Product.find(params[:id])
+	@categories = Category.all
 end
 
 

@@ -15,16 +15,14 @@
 		<%= f.text_field :price, class: "col-xs-12 product_body" %>
 	</div>
 
-		<div class="field row">
+	<div class=“field row”>
 		<%= f.label :category_id %>
-		<%= f.text_field :category_id, class: "col-xs-12 product_body" %>
+		<%= f.collection_select :category_id, @categories, :id, :name, include_blank: "選択してください" %>
 	</div>
 
-	<div class="field">
-		<%= f.radio_button :sale_status, :true %>
-		<%= f.label :sale_status, "販売中", {value: :true, style: "display: inline-block;"} %>
-		<%= f.radio_button :sale_status, :false %>
-		<%= f.label :sale_status, "売り切れ", {value: :false, style: "display: inline-block;"} %>
+	<div class=“field”>
+		<%= f.label :sale_status %>
+		<%= f.select :sale_status, [["販売中",true],["売り切れ",false]] %>
 	</div>
 
 

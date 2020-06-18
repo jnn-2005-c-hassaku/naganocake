@@ -9,9 +9,13 @@
         <td><%= @product.description %></td>
 
 
-        <td><%= @product.price %></td>
+        <td><%= @product.price %>円</td>
 
-        <td><%= @product.category_id %></td>
+
+        <td><%= @product.price_with_tax(@product.price) %>円</td>
+        <%#税込価格表示%>
+
+        <td><%= @product.category.name %></td>
 
                   <td><% if @product.sale_status == true %>
           <p>販売中</p>
