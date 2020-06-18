@@ -316,7 +316,8 @@ transition: background-color 50000s ease-in-out 0s;
 }
 
 /*--------------カテゴリー一覧--------------------*/
-
+.category,
+.product {
 	margin: 5% 0px;
 }
 .category_table {
@@ -390,6 +391,13 @@ table {
    	top: 30px;
     right: 100px;
 }
+.product_img_s {
+	width: 50px;
+}
+.product {
+	margin: 5% 0px;
+}
+
 /*--------------ナビゲーション バー-------------------*/
 .navbar-toggler {
 	font-size: 20px;
