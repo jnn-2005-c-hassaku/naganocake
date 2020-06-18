@@ -7,23 +7,23 @@
 
           <div class="field">
             <%= f.label :last_name, "名前(名字）", class: "form_label" %><br />
-            <%= f.text_field :last_name, autofocus: true, autocomplete:"last_name", class: "form_input_s"%>
+            <%= f.text_field :last_name, autofocus: true, autocomplete:"family-name", class: "form_input_s"%>
 
             <%= f.label :first_name, "名前（名前）", class: "form_label" %><br />
-            <%= f.text_field :first_name, autofocus: true, autocomplete:"first_name", class: "form_input_s" %>
+            <%= f.text_field :first_name, autofocus: true, autocomplete:"given-name", class: "form_input_s" %>
           </div>
 
           <div class="field">
             <%= f.label :last_name_kana, "フリガナ（名字）", class: "form_label" %><br />
-            <%= f.text_field :last_name_kana, autofocus: true, autocomplete:"last_name_kana" , class: "form_input_s"%>
+            <%= f.text_field :last_name_kana, autofocus: true, autocomplete:"family-name" , class: "form_input_s"%>
 
             <%= f.label :first_name_kana, "フリガナ（名前）", class: "form_label" %><br />
-            <%= f.text_field :first_name_kana, autofocus: true, autocomplete:"first_name_kana", class: "form_input_s"%>
+            <%= f.text_field :first_name_kana, autofocus: true, autocomplete:"given-name", class: "form_input_s"%>
           </div>
 
           <div class="field">
             <%= f.label :postcode, "郵便番号", class: "form_label" %><br />
-            <%= f.text_field :postcode, autofocus: true, autocomplete: "postcode", class: "form_input" %>
+            <%= f.text_field :postcode, autofocus: true, autocomplete: "post-code", class: "form_input" %>
           </div>
 
           <div class="field">
@@ -34,7 +34,7 @@
 
           <div class="field">
             <%= f.label :phone_number, "電話番号", class: "form_label" %><br />
-            <%= f.text_field :phone_number, autofocus: true, autocomplete: "phone_number", class: "form_input" %>
+            <%= f.text_field :phone_number, autofocus: true, autocomplete: "tel", class: "form_input" %>
           </div>
 
 

@@ -23,7 +23,7 @@
 
           <li><a href="" class="nav_txt">注文一覧</a></li>
 
-          <li><a href="" class="nav_txt">ジャンル一覧</a></li>
+          <li><%= link_to 'ジャンル一覧', admins_categories_path, class: "nav_txt" %></li>
 
           <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "nav_txt" %></li>
 

@@ -5,10 +5,9 @@
             <%= image_tag('logo.png', class: "sidebar_img") %>
             <h2 class="category_txt white_txt bold">ジャンル検索</h2>
             <ul class="center">
-                <li><a href="" class="white_txt">ケーキ</a></li>
-                <li><a href="" class="white_txt">焼き菓子</a></li>
-                <li><a href="" class="white_txt">プリン</a></li>
-                <li><a href="" class="white_txt">キャンディ</a></li>
+                <% @categories.each do |category| %>
+                <li><a href="" class="white_txt"><%= category.name %></a></li>
+                <% end %>
             </ul>
         </div>
         </div>
