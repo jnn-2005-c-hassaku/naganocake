@@ -4,7 +4,7 @@
   <div>
      <%= link_to '商品登録', new_admins_product_path, class: "form_submit white_txt" %>
   </div>
-  <table class="table product_table">
+  <table class="table product_table txts">
     <thead class="thead">
       <tr>
         <th class="brown_txt txts">写真</th>
@@ -21,7 +21,7 @@
     <tbody>
       <% @products.each do |product| %>
       <tr>
-       <td><%= attachment_image_tag(product, :image, :fill, 100, 100, fallback: "no_image.jpg") %></td>
+       <td><%= attachment_image_tag(product, :image, :fill, 100, 100, class: "product_img_s", fallback: "no_image.jpg") %></td>
          <td><%= product.name %></td>
          <td><%= product.description %></td>
 
@@ -39,7 +39,7 @@
           <p>売り切れ</p>
           <% end %>
         </td>
-          <td><%= link_to '詳細', admins_product_path(product) , class: "show_btn" %></td>
+          <td class="col-xs-2" ><%= link_to '詳細', admins_product_path(product) , class: "show_btn" %></td>
       </tr>
       <% end %>
     </tbody>
