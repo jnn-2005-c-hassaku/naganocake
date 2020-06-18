@@ -34,7 +34,7 @@ def update
 end
 
 def destroy
-	@product = product.find(params[:id])
+	@product = Product.find(params[:id])
 	@product.destroy
 	redirect_to admins_products_path
 end
