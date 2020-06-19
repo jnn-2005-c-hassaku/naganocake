@@ -6,6 +6,5 @@ class Customer < ApplicationRecord
 
 
 	has_many :shipping_addresses
-	belongs_to :product
 	has_many :cart_items
 end
