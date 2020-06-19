@@ -5,16 +5,17 @@ class ProductsController < ApplicationController
 
 	def show
 		@product = Product.find(params[:id])
-    end
-
-	def update
-	    @product = Product.find(params[:id])
-	    @product.update(product_params)
-	    redirect_to products_path
+		@cart_item = CartItem.new
 	end
 
+	#def update
+	#    @product = Product.find(params[:id])
+	#    @product.update(product_params)
+	# render template: "cart_items/add_cart_item"
+	#end
+
  private
-  def shipping_address_params
-  	params.require(:product).permit(:name,:description,:price,:image,:category_id,:sale_status)
-  end
+def product_params
+	params.require(:product).permit(:name,:description,:price,:image,:category_id,:sale_status)
+end
 end

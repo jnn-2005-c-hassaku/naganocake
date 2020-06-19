@@ -2,7 +2,7 @@
 <div class="row">
          <%= render "home/sidebar", categories: Category.all %>
         <div class="col-sm-8 no-gutters">
-          <%= form_for(@product) do |f| %>
+
         <tr>
          <td class="col-md-5" >
                 <%= attachment_image_tag @product, :image, :fill, 200, 200, format: 'jpeg', class: "img-square pull-left profile-img", fallback: "purin.jpg" %>
@@ -14,17 +14,14 @@
            <%= @product.description %><br>
           </td>
           <td>¥<%= @product.price_with_tax(@product.price) %>円(税込）</td>
-          <td class=“field”>
-            <%= f.label :sale_status, "数量" %>
-            <%= f.select :sale_status, [["1",1],["2",2]] %>
-         </td>
-
-
-          <td>
-            <%= f.submit "カートに入れる", class: "btn btn-primary col-xs-12" %>
-          </td>
-          <% end %>
         </tr>
+      <%= form_for @cart_item do |f| %>
+      <tr>
+        <td><%= f.hidden_field :product_id, value: @product.id %></td>
+        <td><%= f.select :quantity, options_for_select((1..20).to_a), include_blank: "個数選択" %></td>
+        <td><%= f.submit "カートに入れる" %></td>
+      </tr>
+      <% end %>
         </div>
 </div>
 </div>

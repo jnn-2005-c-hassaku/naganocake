@@ -10,10 +10,9 @@ Rails.application.routes.draw do
 
 	resources :products
 	resources :customers
-	resources :cart_items
 	resources :orders
 	resources :shipping_addresses
-
+	resources :cart_items
 	namespace :admins do
 		get 'home' => 'home#top'
 		resources :customers
