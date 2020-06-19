@@ -10,7 +10,11 @@ Rails.application.routes.draw do
 
 	resources :products
 	resources :customers
-	resources :cart_items
+	resources :cart_items do
+	    collection do
+			delete 'destroy_all'
+	    end
+	end
 	resources :orders
 	resources :shipping_addresses
 
