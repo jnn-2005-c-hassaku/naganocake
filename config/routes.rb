@@ -12,7 +12,11 @@ Rails.application.routes.draw do
 	resources :customers
 	resources :orders
 	resources :shipping_addresses
-	resources :cart_items
+	resources :cart_items do
+			collection do
+			delete 'destroy_all'
+		end
+	end
 	namespace :admins do
 		get 'home' => 'home#top'
 		resources :customers
