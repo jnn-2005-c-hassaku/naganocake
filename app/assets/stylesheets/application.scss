@@ -28,7 +28,7 @@
 }
 
 body {
-	color: #333;
+	color: #555;
     font-family:"游ゴシック","ヒラギノ角ゴ ProN", "Hiragino Kaku Gothic ProN", "游ゴシック", "メイリオ", Meiryo, Verdana, 'M PLUS 1p', sans-serif;
     font-size: 14px;
     line-height: 1.5;
@@ -283,6 +283,9 @@ header{
 .product_link p:hover {
 	color: #9c7762;
 }
+.product_right {
+	margin-top: 20px;
+}
 /*--------------フッター--------------------*/
 footer {
 	background-color: #EEE2D3;
@@ -456,5 +459,8 @@ table {
 }
 .navbar-toggler:focus {
 	color: #9c7762;
+}
+.product_right {
+	margin-bottom: 5%;
 }
 }
