@@ -15,9 +15,39 @@
 		</tr>
 		</thead>
 
+		<tbody>
+			<% @sum = 0 %>
+				<% @cart_items.each do |cart_item| %>
+			<tr>
+
+				<td><%= cart_item.customer.last_name %></td>
+
+				<td><%= cart_item.product.name %></td>
+
+				<td><%= cart_item.product.price_with_tax(cart_item.product.price) %></td><%#税込金額を表示%>
+
+				<% @sum += cart_item.subtotal(cart_item.product.price,cart_item.quantity) %>
+
+				<td><%= cart_item.quantity %>個</td>
+
+				<td><%= cart_item.subtotal(cart_item.product.price,cart_item.quantity) %>円</td>
+
+				<td><%= link_to "この商品を取り消す",cart_item_path(cart_item), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"} %></td>
+
+			</tr>
+
+			<% end %>
+		</tbody>
+
 	</table>
+
+		<%= button_to "全て削除", destroy_all_cart_items_path, method: :delete %>
+
+
 	<div class="text-right">
 	<h2>合計金額</h2>	
+		<%= @sum %>
+
 </div>
 
 　　　　　　<p class="text-center">
@@ -29,39 +59,5 @@
 </p>
 
 </div> 
-
-<p>
-ここからサンプル表示、保存されているか確認のため、createした人の名前、選んだケーキ、値段だけ表示</p>
-
-<table>
-		<thead>
-	<tr>
-		<th>名前</th>
-		<th>商品名</th>
-		<th >値段</th>
-		<th>商品紹介</th>
-	</tr>
-
-	</thead>
-	<tbody>
-	<% @cart_items.each do |cart_item| %>
-		<tr>
-
-			<td><%= cart_item.customer.last_name %></td>
-			<td><%= cart_item.product.name %></td>
-			<td><%= cart_item.product.price %></td>
-			<td><%= cart_item.product.description %></td>
-
-		</tr>
-		<% end %>
-	</tbody>
-</table>
-
-
-
-
-
-
-
 
 
