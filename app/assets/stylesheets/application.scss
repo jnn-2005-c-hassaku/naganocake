@@ -72,6 +72,9 @@ h2 {
 .txtm {
 	font-size: 20px;
 }
+.txtl {
+	font-size: 25px;
+}
 .header_wrap {
 	height: 70px;
 }
@@ -127,7 +130,17 @@ h2 {
 .show_btn:hover {
 	border: solid 3px #9c7762;
 }
-
+.destroy_all_btn {
+	display: inline-block;
+	background-color: #91c9e7;
+	color: #fff;
+	padding: 10px;
+	border-radius: 15px;
+}
+.destroy_all_btn:hover {
+	background-color: #5f8396;
+	color: #fff;
+}
 .destroy_btn {
 	color: #91c9e7;
 	padding: 5px 10px;
@@ -137,6 +150,29 @@ h2 {
 .destroy_btn:hover {
 	color: #5f8396;
 	border: solid 3px #5f8396;
+}
+.next_btn {
+	display: inline-block;
+	margin: 20px 0px;
+	background-color: #E7B091;
+	padding: 10px 100px;
+	border-radius: 15px;
+	color: #fff;
+}
+.next_btn:hover {
+	background-color: #9c7762;
+	color: #f0f0f0;
+}
+.return_btn {
+	display: inline-block;
+	background-color: #ed7b79;
+	padding: 10px 20px;
+	border-radius: 15px;
+	color: #fff;
+}
+.return_btn:hover {
+	background-color:  #c26261;
+	color: #f0f0f0;
 }
 /*--------------共通のテーブル--------------------*/
 .table {
@@ -330,8 +366,14 @@ transition: background-color 50000s ease-in-out 0s;
 .product_data {
 	margin: 20px 0px;
 }
-/*--------------配送先ー一覧--------------------*/
-
+/*--------------カート一覧--------------------*/
+.total_price {
+	margin-right: 5%;
+}
+.cart_items_flex {
+	display: flex;
+	justify-content: space-between;
+}
 /*--------------モバイル版--------------------*/
 
 @media(max-width: 1000px) {
@@ -394,7 +436,9 @@ table {
 .product_img_s {
 	width: 50px;
 }
-.product {
+.product,
+.category,
+.cart_item {
 	margin: 5% 0px;
 }
 

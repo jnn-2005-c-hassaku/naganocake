@@ -1,10 +1,10 @@
-<div class="row category">
+<div class="row product">
 
  <h2 class="midashi_txt">商品登録</h2>
 <div class="form_cont">
     <%= form_for (@product), url: admins_products_path do |f| %>
     <div class="field">
-      <%= f.label :name, "ジャンル名", class: "form_label" %>
+      <%= f.label :name, "商品名", class: "form_label" %>
       <%= f.text_field :name, class: "form_input" %>
     </div>
     <div class="field">
