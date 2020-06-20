@@ -37,9 +37,4 @@ private
 def cart_item_params
 params.require(:cart_item).permit(:product_id, :quantity)
 end
-
-def product_params
-params.permit(:name,:description,:price,:image,:category_id,:sale_status)
-end
-
 end

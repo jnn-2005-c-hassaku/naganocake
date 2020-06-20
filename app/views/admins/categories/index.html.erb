@@ -1,6 +1,6 @@
 <div class="row category">
 
-  <h2 class="midashi_txt">ジャンルの追加</h2>
+  <h2 class="midashi_txt">ジャンル一覧</h2>
 
   <div class="form_cont">
     <%= form_for (@category), url: admins_categories_path do |f| %>
@@ -22,7 +22,7 @@
   </div>
 
 
-  <table class="table category_table">
+  <table class="table category_table table-hover table-inverse">
     <thead class="thead">
       <tr>
         <th class="brown_txt txts">ジャンル名</th>
