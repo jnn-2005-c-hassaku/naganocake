@@ -1,27 +1,26 @@
 <div class="container">
-<div class="row">
-         <%= render "home/sidebar", categories: Category.all %>
-        <div class="col-sm-8 no-gutters">
+  <div class="row">
+   <%= render "home/sidebar", categories: Category.all %>
+   <div class="col-sm-8">
 
-        <tr>
-         <td class="col-md-5" >
-                <%= attachment_image_tag @product, :image, :fill, 200, 200, format: 'jpeg', class: "img-square pull-left profile-img", fallback: "purin.jpg" %>
-          </td>
-          <td>
-           <h1><%= @product.name %></h1>
-          </td>
-          <td>
-           <%= @product.description %><br>
-          </td>
-          <td>¥<%= @product.price_with_tax(@product.price) %>円(税込）</td>
-        </tr>
-      <%= form_for @cart_item do |f| %>
-      <tr>
-        <td><%= f.hidden_field :product_id, value: @product.id %></td>
-        <td><%= f.select :quantity, options_for_select((1..20).to_a), include_blank: "個数選択" %></td>
-        <td><%= f.submit "カートに入れる" %></td>
-      </tr>
-      <% end %>
-        </div>
+     <div class="col-sm-7" >
+      <%= attachment_image_tag @product, :image, :fill, 400 ,300, format: 'jpeg', class: "img-square pull-left profile-img", fallback: "purin.jpg" %>
+    </div>
+    <div class="col-sm-5">
+    <h2 class="txtl bold"><%= @product.name %></h2>
+
+    <p class="txts"><%= @product.description %></p><br>
+
+    <p class="txtm">¥<%= @product.price_with_tax(@product.price) %>円(税込）</p>
+
+  <%= form_for @cart_item do |f| %>
+
+    <p><%= f.hidden_field :product_id, value: @product.id %></p>
+
+    <p><%= f.select :quantity, options_for_select(1..20), include_blank: "個数選択" %><%= f.submit "カートに入れる" %></p>
+
+  <% end %>
+</div>
+</div>
 </div>
 </div>
