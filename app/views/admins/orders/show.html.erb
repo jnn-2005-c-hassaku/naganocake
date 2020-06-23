@@ -16,8 +16,8 @@
 注文ステータス
 
 <%= form_for (@order), url: admins_order_path do |f| %>
-	<%#= f.select :buy_status, options_for_select((1..3), {selected: @order.buy_status.to_i} ) %>
-	<%= f.select :buy_status, {'入金待ち': 0, '入金完了': 1, '発送準備中': 2, '発送済': 3} %>
-<%#初期値設定するする%>
+	<%#enum用のセレクトらしい%>
+	<%= f.select :buy_status, Order.buy_statuses.keys, :selected=>Order.buy_statuses[@order.buy_status] %>
+<%#初期値設定まだしてない%>
 	<%= f.submit "更新" %></td>
 <% end %>

@@ -6,16 +6,14 @@ end
 
 def show
 	@order = Order.find(params[:id])
+
 end
 
 def update
 	@order = Order.find(params[:id])
-		if @order.update(order_params)
-			flash[:notice] = "購入ステータスを更新しました"
-			redirect_to admins_order_path
-		else
-			render :show
-		end
+	@order.update(order_params)
+	flash[:notice] = "購入ステータスを更新しました"
+	redirect_to admins_orders_path
 end
 
 
