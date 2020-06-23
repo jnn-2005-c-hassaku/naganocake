@@ -1,7 +1,19 @@
 class CustomersController < ApplicationController
+  def confirm
+  end
+
+  def hide
+      @customer = Customer.find(params[:id])
+      @customer.update(is_deleted: true)
+      reset_session
+      flash[:notice] = "ありがとうございました。またのご利用お待ちしております。"
+      redirect_to root_path 
+  end
+
   def show
 	  @customer = Customer.find(params[:id])
 	  @customer = current_customer
+    #パスワードを入力するとホーム画面に戻っちゃう
   end
 
   def edit
@@ -21,15 +33,8 @@ class CustomersController < ApplicationController
       end
   end
 
-  def cancel
-      @customer = Customer.find(params[:id])
-      @customer.cancel
-      flash[:notice] = "Book was successfully destroyed."
-      redirect_to home_path
-  end
-
   private
   def customer_params
-     params.require(:customer).permit(:first_name, :last_name, :first_name_kana, :last_name_kana, :postcode, :address, :phone_number, :email, :account_status)
+     params.require(:customer).permit(:first_name, :last_name, :first_name_kana, :last_name_kana, :postcode, :address, :phone_number, :email, :account_status, :is_deleted)
   end
 end
