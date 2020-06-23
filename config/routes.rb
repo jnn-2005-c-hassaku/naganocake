@@ -8,9 +8,10 @@ Rails.application.routes.draw do
 		sessions: 'customers/sessions'
 	}
 	root 'home#top'
-
+    get 'customers/confirm' => 'customers/confirm'
 	resources :products
 	resources :customers
+	put "/customers/:id/confirm" => "customers#hide", as: 'confirm_hide'
 	resources :orders do
 			collection do
 			get 'confirm'
