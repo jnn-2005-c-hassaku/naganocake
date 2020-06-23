@@ -76,18 +76,14 @@
 </div>
 
 <div class="center">
-	<%= form_for @order, url: orders_path, method: :post do |f| %>
+	<%= form_with model: @order do |f| %>
 	<%= f.hidden_field :address, value: @order.address %>
 	<%= f.hidden_field :postcode, value: @order.postcode %>
 	<%= f.hidden_field :direction, value: @order.direction %>
 	<%= f.hidden_field :pay_type, value: @order.pay_type %>
+	<%= f.hidden_field :buy_status, value: :入金待ち %>
 	<%= f.hidden_field :postage, value: @order.postage %>
 	<%= f.hidden_field :total_price, value: @order.postage + @sum  %>
-	<%= f.fields_for :order_items do |f| %>
-	<%= f.hidden_field :make_status, value: 1 %>
-	<%= f.hidden_field :product_id %>
-	<%= f.hidden_field :quantity %>
-				<% end %>
 	<%= f.submit '注文確定', class: "form_submit" %>
 	<% end %>
 </div>

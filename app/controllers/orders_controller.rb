@@ -9,7 +9,6 @@ def confirm
 	@order = Order.new
 	@order.postage = 800
 	@customer = current_customer
-	#@order.order_items.build ※エラーが出る
 
 	if params[:pay_types] == "1"
 		@order.pay_type = 1
@@ -40,6 +39,16 @@ end
 
 	def create
 		@order = Order.new(order_params)
+		#order_itemsのnew設定はここ,これでOrderのcreate時一緒に保存される
+		@cart_items = CartItem.where(customer_id: current_customer.id)
+		@cart_items.each do |cart_item|
+		@order_item = @order.order_items.build
+		@product = Product.find_by(id: cart_item.product_id)
+		@order_item.product = @product
+		@order_item.make_status = "1"
+		@order_item.quantity = cart_item.quantity
+		@order_item.tax_inclueded_price = @product.price_with_tax(@product.price)
+		end
 		@order.customer_id = current_customer.id
 		if
 		@order.save
@@ -53,20 +62,20 @@ end
 	end
 
 	def show
-		@orders = Order.find(params[:id])
-		@order_items = OrderItem.all
+		@order = Order.find(params[:id])
+		@order_item = OrderItem.where(ordeer_id: @orders)
 	end
 
 	def index
-	 @orders = Order.all
+	 @orders = Order.where(customer_id: current_customer.id)
+	 @order_item = OrderItem.where(ordeer_id: @orders)
 	end
 
 
 private
 	def order_params
 		params.require(:order).permit(:address,:postcode,:direction,:buy_status,
-			:pay_type,:postage,:total_price,:customer_id, [order_items_attributes: [:order_id, :product_id, :quantity, :make_status, :tax_indlueded_price]])
-#
+			:pay_type,:postage,:total_price,:customer_id, [order_items_attribute: [:product_id, :quantity, :make_status, :tax_indlueded_price]])
 	end
 
 
