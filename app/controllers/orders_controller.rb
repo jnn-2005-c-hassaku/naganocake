@@ -9,8 +9,6 @@ def confirm
 	@order = Order.new
 	@order.postage = 800
 	@customer = current_customer
-	@order.order_items.build
-	#order_itemsのnew設定ここであっている,これでOrderのcreate時一緒に保存される
 
 	if params[:pay_types] == "1"
 		@order.pay_type = 1
