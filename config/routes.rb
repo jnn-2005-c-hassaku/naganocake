@@ -12,7 +12,9 @@ Rails.application.routes.draw do
 	resources :customers
 	resources :orders do
 			collection do
-			post :confirm
+			get 'confirm'
+			get 'thanks'
+			resource :order_items, only: [:create]
 		end
 	end
 
