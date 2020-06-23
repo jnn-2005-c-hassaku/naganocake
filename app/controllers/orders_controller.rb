@@ -9,7 +9,7 @@ def confirm
 	@order = Order.new
 	@order.postage = 800
 	@customer = current_customer
-	@order.order_items.build
+	#@order.order_items.build ※エラーが出る
 
 	if params[:pay_types] == "1"
 		@order.pay_type = 1
