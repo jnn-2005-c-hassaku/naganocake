@@ -10,7 +10,12 @@ Rails.application.routes.draw do
 
 	resources :products
 	resources :customers
-	resources :orders
+	resources :orders do
+			collection do
+			post :confirm
+		end
+	end
+
 	resources :shipping_addresses
 	resources :cart_items do
 			collection do
