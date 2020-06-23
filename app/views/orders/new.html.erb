@@ -2,7 +2,7 @@
   <h2 class=“midashi_txt”>注文情報入力</h2>
   <h4>支払い方法</h4>
   <div>
- <%= form_for @order, url: confirm_orders_path(@order) do |f| %>
+ <%= form_for @order, url: confirm_orders_path , method: :get do |f| %>
 <div>
 
 <%= radio_button_tag :pay_types, 1 %>
@@ -20,17 +20,17 @@
 <div>
   <%= radio_button_tag :newaddress, 1 %>
   <%= label_tag :ご自身の住所 %><br>
-  <%= current_customer.postcode %>　
-  <%= current_customer.address %><br>
-  <%= current_customer.last_name %>
-  <%= current_customer.first_name %>
+  <%= @customer.postcode %>　
+  <%= @customer.address %><br>
+  <%= @customer.last_name %>
+  <%= @customer.first_name %>
 </div>
 
 
-
+<div>
 <%= radio_button_tag :newaddress, 2 %>
   <%= label_tag :登録済みの住所から選択 %><br>
-  <%= collection_select :order, :address2, current_customer.shipping_addresses ,:id ,:address_all %>
+  <%= collection_select :order, :address2, @customer.shipping_addresses ,:id ,:address_all %>
 </div>
 
 <%#:order,%>

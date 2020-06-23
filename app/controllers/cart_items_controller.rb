@@ -12,7 +12,7 @@ class CartItemsController < ApplicationController
 		else
 			session[:cart_item] = @cart_item.attributes.slice(*cart_item_params.keys)
 			@categories = Category.all
-			@product = Product.find_by(id:@cart_item.product_id)
+			@product = Product.find_by(id: @cart_item.product_id)
 			redirect_to product_path(@product.id), flash: {alert: '※個数を選択して下さい'}
 		end
 	end
