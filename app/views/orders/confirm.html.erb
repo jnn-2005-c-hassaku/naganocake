@@ -1,0 +1,23 @@
+confirm.html.erb
+<div class=“row cart_item”>
+	<h2 class=“midashi_txt”>確認画面</h2>
+	<h4>支払い方法</h4>
+	<div>
+	<%= form_for @order, url: orders_path(@order), method: :post do |f| %>
+<%= f.hidden_field :pay_type, value: @order.pay_type %>
+<%= f.hidden_field :address, value: @order.address %>
+<%= f.hidden_field :postcode, value: @order.postcode %>
+<%= f.hidden_field :direction, value: @order.direction %>
+
+<%= @order.pay_type %>
+
+<%= @order.direction %>
+<%= @order.postcode %>
+<%= @order.address %>
+
+
+		<%= f.submit '送信' %>
+
+		<% end %>
+	</div>
+</div>

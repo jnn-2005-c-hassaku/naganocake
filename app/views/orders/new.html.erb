@@ -1,0 +1,50 @@
+<div class=“row cart_item”>
+  <h2 class=“midashi_txt”>注文情報入力</h2>
+  <h4>支払い方法</h4>
+  <div>
+ <%= form_for @order, url: confirm_orders_path(@order) do |f| %>
+<div>
+
+<%= radio_button_tag :pay_types, 1 %>
+<%= label_tag :クレジットカード %><br>
+
+<%= radio_button_tag :pay_types, 2 %>
+<%= label_tag :銀行振り込み %><br>
+</div>
+
+
+
+
+
+<h4>お届け先</h4>
+<div>
+  <%= radio_button_tag :newaddress, 1 %>
+  <%= label_tag :ご自身の住所 %><br>
+  <%= current_customer.postcode %>　
+  <%= current_customer.address %><br>
+  <%= current_customer.last_name %>
+  <%= current_customer.first_name %>
+</div>
+
+
+
+<%= radio_button_tag :newaddress, 2 %>
+  <%= label_tag :登録済みの住所から選択 %><br>
+  <%= collection_select :order, :address2, current_customer.shipping_addresses ,:id ,:address_all %>
+</div>
+
+<%#:order,%>
+
+
+
+
+<div>
+  <%= radio_button_tag :newaddress, 3 %>
+  　<%= label_tag :新しいお届け先 %><br>
+<td>郵便番号</td><%= text_field_tag :postcode3 %><br>
+<td>住所　　</td><%= text_field_tag :address3 %><br>
+<td>宛名　　</td><%= text_field_tag :direction3 %><br>
+</div>
+<%= f.submit '確認画面へ進む' %>
+<% end %>
+</div>
