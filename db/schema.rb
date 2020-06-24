@@ -53,7 +53,7 @@ ActiveRecord::Schema.define(version: 2020_06_24_093521) do
     t.string "last_name_kana"
     t.string "postcode"
     t.string "address"
-    t.boolean "account_status"
+    t.boolean "account_status", default: true
     t.string "phone_number"
     t.boolean "is_deleted", default: false
     t.index ["email"], name: "index_customers_on_email", unique: true

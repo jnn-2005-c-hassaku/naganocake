@@ -17,6 +17,7 @@
  @import "bootstrap";
 
 /*--------------共通（字体や色など）--------------------*/
+
 .no-gutters {
   margin:0;
   padding:0;
@@ -58,6 +59,9 @@ h2 {
 }
 h3 {
 	margin: 40px 0px;
+}
+.error_messages {
+	color: #333;
 }
 .midashi_txt {
 	color: #C39C89;
