@@ -15,12 +15,14 @@ def new
 	@categories = Category.all
 end
 
-
 def create
 	@product = Product.new(product_params)
-	@product.save
-	redirect_to admins_products_path
-
+	if @product.save
+	  flash[:notice] = "商品を追加しました"
+	  redirect_to admins_products_path
+    else
+      lender :index
+    end
 end
 
 def edit
@@ -32,8 +34,12 @@ end
 
 def update
 	@product = Product.find(params[:id])
-	@product.update(product_params)
-	redirect_to admins_products_path
+	if @product.update(product_params)
+	  redirect_to admins_products_path
+	  flash[:notice] = "商品を更新しました"
+	else
+	  lender :edit
+	end
 end
 
 def destroy
