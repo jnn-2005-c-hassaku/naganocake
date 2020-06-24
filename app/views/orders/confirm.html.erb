@@ -84,6 +84,7 @@
 	<%= f.hidden_field :buy_status, value: :入金待ち %>
 	<%= f.hidden_field :postage, value: @order.postage %>
 	<%= f.hidden_field :total_price, value: @order.postage + @sum  %>
+<%#hidden消したよ%>
 	<%= f.submit '注文確定', class: "form_submit" %>
 	<% end %>
 </div>
