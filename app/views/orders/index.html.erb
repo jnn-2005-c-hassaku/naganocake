@@ -1,5 +1,5 @@
 <div class="row cart_item">
-	<h2  class=“midashi_txt”>注文履歴一覧</h2>
+	<h2 class="midashi_txt">注文履歴一覧</h2>
   <table class="table product_table txts table-hover table-inverse">
     <thead class="thead">
       <tr>
@@ -20,7 +20,7 @@
         <%= order.direction %>
       </td>
 
-      <td>
+       <td>
         <% order.order_items.each do |order_item| %>
         <%= order_item.product.name %>
         <% end %>
