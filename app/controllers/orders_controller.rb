@@ -1,20 +1,20 @@
 class OrdersController < ApplicationController
 	def new
-	@order = Order.new
-	@customer = current_customer
+		@order = Order.new
+		@customer = current_customer
 	end
 
 
-def confirm
-	@order = Order.new
-	@order.postage = 800
-	@customer = current_customer
+	def confirm
+		@order = Order.new
+		@order.postage = 800
+		@customer = current_customer
 
-	if params[:pay_types] == "1"
-		@order.pay_type = 1
-	else
-		@order.pay_type = 2
-	end
+		if params[:pay_types] == "1"
+			@order.pay_type = 1
+		else
+			@order.pay_type = 2
+		end
 
 		if params[:newaddress] == "1"
 			@order.address = @customer.address
@@ -35,25 +35,24 @@ def confirm
 			@order.direction = params[:direction3]
 		end
 
-end
+	end
 
 	def create
 		@order = Order.new(order_params)
 		#order_itemsのnew設定はここ,これでOrderのcreate時一緒に保存される
 		@cart_items = CartItem.where(customer_id: current_customer.id)
 		@cart_items.each do |cart_item|
-		@order_item = @order.order_items.build
-		@product = Product.find_by(id: cart_item.product_id)
-		@order_item.product = @product
-		@order_item.make_status = "1"
-		@order_item.quantity = cart_item.quantity
-		@order_item.tax_inclueded_price = @product.price_with_tax(@product.price)
+			@order_item = @order.order_items.build
+			@product = Product.find_by(id: cart_item.product_id)
+			@order_item.product = @product
+			@order_item.make_status = "1"
+			@order_item.quantity = cart_item.quantity
+			@order_item.tax_inclueded_price = @product.price_with_tax(@product.price)
 		end
 		@order.customer_id = current_customer.id
-		if
-		@order.save
-		redirect_to thanks_orders_path
-	end
+		if@order.save
+			redirect_to thanks_orders_path
+		end
 
 	end
 
@@ -63,16 +62,13 @@ end
 
 	def show
 		@order = Order.find(params[:id])
-		@order_item = OrderItem.where(ordeer_id: @orders)
 	end
 
 	def index
-	 @orders = Order.where(customer_id: current_customer.id)
-	 @order_item = OrderItem.where(ordeer_id: @orders)
+		@orders = Order.where(customer_id: current_customer.id)
 	end
 
-
-private
+	private
 	def order_params
 		params.require(:order).permit(:address,:postcode,:direction,:buy_status,
 			:pay_type,:postage,:total_price,:customer_id, [order_items_attribute: [:product_id, :quantity, :make_status, :tax_indlueded_price]])

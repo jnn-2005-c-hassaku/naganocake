@@ -10,7 +10,7 @@
 
       <p class="txts"><%= @product.description %></p><br>
 
-      <p class="txtm">¥<%= @product.price_with_tax(@product.price) %>円(税込）</p>
+      <p class="txtm true_txt">¥<%= @product.price_with_tax(@product.price) %>円(税込）</p>
       <%= form_for @cart_item do |f| %>
 
       <p><%= f.hidden_field :product_id, value: @product.id %></p>
