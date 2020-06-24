@@ -4,17 +4,7 @@
   <div class="product_index">
     <h2 class="midashi_txt brown_txt bold">商品一覧 <span class="txts">全<%= @products.count %>件</span></h2>
 
- <div class="product_index">
-    <% @products.each do |product| %>
-    <div class="col-sm-4 col product_link">
-      <%= link_to(product_path(product)) do %>
-      <%= attachment_image_tag product, :image, :fill, 1000, 600, format: 'jpeg', class: "product_img", fallback: "purin.jpg" %>
-      <p class="txts brown_txt"><%= product.name %></p>
-      <p class="txts brown_txt">￥<%= product.price %></p>
-      <% end %>
-    </div>
-    <% end %>
-  </div>
+ <%= render "products/productlist", products: @products %>
 
 
   </div>

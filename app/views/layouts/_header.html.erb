@@ -2,9 +2,16 @@
   <div class="container">
     <p id= "notice" class="notice"><%= notice %></p>
     <nav class='nav navbar-nav navbar-left' >
+      <% if admin_signed_in? %>
+      <%= link_to admins_home_path do %>
+      <%= image_tag('logo.png', class: "logo_img") %>
+      <% end %>
+       <% else %>
       <%= link_to root_path do %>
       <%= image_tag('logo.png', class: "logo_img") %>
       <% end %>
+      <% end %>
+
     </nav><!--ロゴ-->
 
     <% if admin_signed_in?  %>
