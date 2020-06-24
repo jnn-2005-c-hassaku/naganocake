@@ -1,6 +1,6 @@
 <div class="row category">
     <h2 class="midashi_txt">ジャンルの編集</h2>
-
+    <%= render 'layouts/errors', obj: @category %>
   <div class="form_cont">
     <%= form_for (@category), url: admins_category_path do |f| %>
     <div class="field">

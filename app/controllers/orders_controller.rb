@@ -50,7 +50,7 @@ class OrdersController < ApplicationController
 			@order_item.tax_inclueded_price = @product.price_with_tax(@product.price)
 		end
 		@order.customer_id = current_customer.id
-		if@order.save
+		if @order.save
 			redirect_to thanks_orders_path
 		end
 

@@ -64,7 +64,8 @@ h2 {
 	background-repeat: no-repeat;
 	background-position: left, bottom;
 	padding: 15px 0px 5px 15px;
-	margin: 3% 0px;
+	margin-top: 10%;
+	margin-bottom: 3%;
 	font-weight: bold;
 }
 .form_midashi_txt{
@@ -124,6 +125,7 @@ h2 {
 	background-size: cover;
 }
 .edit_btn {
+	display: inline-block;
 	color: #E7B091;
 	padding: 5px 10px;
 	border-radius: 15px;
@@ -160,6 +162,7 @@ h2 {
 	color: #f0f0f0;
 }
 .destroy_btn {
+	display: inline-block;
 	color: #91c9e7;
 	padding: 5px 10px;
 	border-radius: 15px;
@@ -289,8 +292,18 @@ header{
 }
 .main_txt {
 	position: absolute;
+	font-size: 20px;
 	bottom: 30px;
 	left: 30px;
+}
+.sub_txt {
+	line-height: 2;
+	letter-spacing: 2px;
+	font-size: 10px;
+	padding-left: 10px;
+}
+.main_txt_img {
+	width: 50%;
 }
 /*--------------商品一覧--------------------*/
 .product_img {
@@ -446,7 +459,6 @@ table {
 	text-align: center;
 	background-position: center;
 	padding: 15px 15px 10px 0px;
-	margin: 3% 0px;
 	font-weight: bold;
 }
 
