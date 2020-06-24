@@ -440,12 +440,11 @@ border: solid 3px #de8152;
 	justify-content: space-between;
 }
 /*--------------thanksページ--------------------*/
-.thanks {
-	background-image: url(purin.jpg);
-	height: 100vh;
-	background-size: cover;
-	background-position: center;
-	background-repeat: no-repeat;
+.thanks_img {
+	position: absolute;
+	top: 90px;
+	left: 0;
+	width: 100%;
 }
 /*--------------退会確認--------------------*/
 .customer-confirm {
@@ -552,4 +551,5 @@ table {
 .product_right {
 	margin-bottom: 5%;
 }
+
 }
