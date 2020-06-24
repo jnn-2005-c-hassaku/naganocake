@@ -1,59 +1,37 @@
-<div class="container">
-	<div class="row">
-		<div class="col-sm-8 no-gutters">
-		 <div class="form_cont">
-		  <h2 class="form_midashi_txt">マイページ</h2>
-		    <h2>登録情報</h2>
-		    <tr>
-		      <td>
+	<div class="row mypage">
+		  <h2 class="midashi_txt">マイページ</h2>
+		    <h2 class="brown_txt bold">登録情報</h2>
              	<%= link_to "編集する", edit_customer_path(@customer.id), class: "edit_btn" %>
-              </td>
-               <td>
-             	<%= link_to "パスワードを変更する", edit_customer_password_path(current_customer.id), class: "edit_btn" %>
-              </td>
-            </tr>
+             	<%= link_to "パスワードを変更する", edit_customer_password_path(current_customer.id), class: "destroy_btn" %>
             	<table class="table txts table-inverse table-bordered">
-	          	<%= form_for(@customer) do |f| %>
 			        <tr>
-			          <td><%= f.label :full_name, "氏名", class: "form_label" %></td>
+			          <td>氏名</td>
 			          <td><%= @customer.last_name %><%= @customer.first_name %></td>
 			        </tr>
 			        <tr>
-			          <td><%= f.label :full_name_kana, "カナ", class: "form_label" %></td>
+			          <td>フリガナ</td>
 			          <td><%= @customer.last_name_kana %><%= @customer.first_name_kana %></td>
 			        </tr>
 			        <tr>
-			          <td><%= f.label :postcode, "郵便番号", class: "form_label" %></td>
+			          <td>郵便番号</td>
 			          <td><%= @customer.postcode %></td>
 			        </tr>
 			        <tr>
-			          <td><%= f.label :address, "住所", class: "form_label" %></td>
+			          <td>住所</td>
 			          <td><%= @customer.address %></td>
 			        </tr>
 			        <tr>
-			          <td><%= f.label :phone_number, "電話番号", class: "form_label" %></td>
+			          <td>電話番号</td>
 			          <td><%= @customer.phone_number %></td>
 			        </tr>
 			        <tr>
-			          <td><%= f.label :email, "メールアドレス", class: "form_label" %></td>
+			          <td>メールアドレス</td>
 			          <td><%= @customer.email %></td>
 			        </tr>
-			        <% end %>
 			    </table>
-			          <h2>配送先</h2>
-			            <tr>
-					      <td>
-			             	<%= link_to "一覧を見る", shipping_addresses_path(@customer.id), class: "edit_btn" %>
-			              </td>
-			            </tr>
-			          <h2>注文履歴</h2>
-                        <tr>
-					      <td>
-			             	<a href="" class="nav_txt">一覧を見る</a>
-			              </td>
-			            </tr>
-	        　　</div>
-	        </div>
+			          <h2 class="brown_txt bold">配送先</h2>
+			             	<%= link_to "一覧を見る", shipping_addresses_path(@customer.id), class: "return_btn" %>
+			          <h2 class="brown_txt bold">注文履歴</h2>
+			          <%= link_to "一覧を見る", orders_path(@customer.id), class: "return_btn" %>
 	    </div>
-	</div>
 

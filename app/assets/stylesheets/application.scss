@@ -56,6 +56,9 @@ h2 {
 	font-size: 20px;
 	padding: 10px;
 }
+h3 {
+	margin: 40px 0px;
+}
 .midashi_txt {
 	color: #C39C89;
 	font-size: 23px;
@@ -85,6 +88,9 @@ h2 {
 }
 .txtl {
 	font-size: 25px;
+}
+.txtxl {
+	font-size: 30px;
 }
 .header_wrap {
 	height: 70px;
@@ -123,6 +129,9 @@ h2 {
 .orange_bg {
 	background-image: url(main_bg.png);
 	background-size: cover;
+}
+.btn {
+	margin: 30px;
 }
 .edit_btn {
 	display: inline-block;
@@ -371,6 +380,7 @@ transition: background-color 50000s ease-in-out 0s;
 	border-radius: 15px;
 	box-shadow: inset 0 2px 0 rgba(255,255,255,0.2), 0 2px 2px rgba(0, 0, 0, 0.19);
 }
+
 .form_submit_s {
 	background-color: #E7B091;
 	padding: 10px 20px;
@@ -403,7 +413,8 @@ border: solid 3px #de8152;
 
 /*--------------カテゴリー一覧--------------------*/
 .category,
-.product {
+.product,
+.customer{
 	margin: 5% 0px;
 }
 .category_table {
@@ -420,6 +431,10 @@ border: solid 3px #de8152;
 .total_price {
 	margin-right: 5%;
 }
+.cart_item,
+.mypage {
+	margin-bottom: 5% ;
+}
 .cart_items_flex {
 	display: flex;
 	justify-content: space-between;
@@ -431,6 +446,10 @@ border: solid 3px #de8152;
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
+}
+/*--------------退会確認--------------------*/
+.customer-confirm {
+	margin: 20% 0px;
 }
 /*--------------モバイル版--------------------*/
 
@@ -505,7 +524,8 @@ table {
 }
 .product,
 .category,
-.cart_item {
+.cart_item,
+.customer {
 	margin: 5% 0px;
 }
 
