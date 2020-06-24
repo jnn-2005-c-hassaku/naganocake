@@ -1,0 +1,67 @@
+<div class="row order_confirm">
+	<h2  class="midashi_txt">会員詳細</h2>
+		   <table>
+			   	<tbody>
+			   			<%= form_for(@customer) do |f| %>
+
+			   			  <tr>
+					        <td class="field">
+					          <%= f.label :ID, "顧客ID", class: "form_label" %></td>
+					          <td><%= @customer.id %>
+					          <td><% if @customer.account_status == true %>
+				                  <p class="true_txt">有効</p>
+				                  <% else %>
+				                  <p class="false_txt">退会済み</p>
+				                  <% end %>
+				              </td>
+					      </tr>
+
+			   			  <tr>
+					        <td class="field">
+					          <%= f.label :full_name, "氏名", class: "form_label" %></td>
+					          <td><%= @customer.last_name %><%= @customer.first_name %></td>
+					      </tr>
+                          
+                          <tr>
+					        <td class="field">
+					          <%= f.label :full_name_kana, "カナ", class: "form_label" %></td>
+					          <td><%= @customer.last_name_kana %><%= @customer.first_name_kana %></td>
+					      </tr>
+
+                          <tr>
+					        <td class="field">
+					          <%= f.label :postcode, "郵便番号", class: "form_label" %></td>
+					          <td><%= @customer.postcode %></td>
+					      </tr>
+
+					      <tr>
+					        <td class="field">
+					          <%= f.label :address, "住所", class: "form_label" %></td>
+					          <td><%= @customer.address %></td>
+					      </tr>
+
+					      <tr>
+					        <td class="field">
+					          <%= f.label :phone_number, "電話番号", class: "form_label" %></td>
+					          <td><%= @customer.phone_number %></td>
+					      </tr>
+					       
+					      <tr>
+					        <td class="field">
+					          <%= f.label :email, "メールアドレス", class: "form_label" %></td>
+					          <td><%= @customer.email %></td>
+					      </tr>
+				            
+				        <% end %>
+	                      
+	                      <tr>
+	                      	<td><%= link_to "編集する", edit_admins_customer_path(@customer), class: "btn btn-default" %>
+	                      	</td>
+	                      
+	                      	<td><%= link_to "注文履歴一覧を見る", admins_orders_path(@order), class: "btn btn-default" %>
+	                      	</td>
+	                      </tr>
+				        
+				</body>
+		   </table>
+</div>
