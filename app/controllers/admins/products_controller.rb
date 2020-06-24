@@ -21,7 +21,7 @@ def create
 	  flash[:notice] = "商品を追加しました"
 	  redirect_to admins_products_path
     else
-      lender :index
+      render :index
     end
 end
 
@@ -35,10 +35,10 @@ end
 def update
 	@product = Product.find(params[:id])
 	if @product.update(product_params)
-	  redirect_to admins_products_path
 	  flash[:notice] = "商品を更新しました"
+	  redirect_to admins_products_path
 	else
-	  lender :edit
+	  render :edit
 	end
 end
 

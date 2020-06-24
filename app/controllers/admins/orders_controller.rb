@@ -15,7 +15,7 @@ before_action :authenticate_admin!
 		  flash[:notice] = "購入ステータスを更新しました"
 		  redirect_to admins_orders_path
 		else
-	      render :edit
+	      render :show
 	    end
 	end
 
