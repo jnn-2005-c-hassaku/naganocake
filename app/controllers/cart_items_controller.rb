@@ -4,18 +4,25 @@ class CartItemsController < ApplicationController
 	end
 
 	def create
-		@cart_item = CartItem.new(cart_item_params)
-		@cart_item.customer_id = current_customer.id
-		if 
+		@cart_item = current_customer.cart_items.build(cart_item_params)
+		@cart_items = current_customer.cart_items.all
+		@cart_items.each do |cart_item|
+			if cart_item.product_id == @cart_item.product_id
+			add_quantity = cart_item.quantity + @cart_item.quantity
+			cart_item.update_attribute(:quantity, add_quantity)
+			@cart_item.delete
+			end
+		end#each文のend
 			@cart_item.save
-			redirect_to cart_items_path
-		else
-			session[:cart_item] = @cart_item.attributes.slice(*cart_item_params.keys)
-			@categories = Category.all
-			@product = Product.find_by(id: @cart_item.product_id)
-			redirect_to product_path(@product.id), flash: {alert: '※個数を選択して下さい'}
+			flash[:notice] = "カートに商品を追加しました"
+			redirect_to :cart_items
 		end
-	end
+		#else
+		#	session[:cart_item] = @cart_item.attributes.slice(*cart_item_params.keys)
+		#	@categories = Category.all
+		#	@product = Product.find_by(id: @cart_item.product_id)
+		#	redirect_to product_path(@product.id), flash: {alert: '※個数を選択して下さい'}
+		#end
 
 	def update
 		@cart_item = CartItem.find(params[:id])
