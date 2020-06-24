@@ -1,4 +1,6 @@
 class CartItemsController < ApplicationController
+before_action :authenticate_customer!
+
 	def index
 		@cart_items = CartItem.where(customer_id: current_customer.id)
 	end
@@ -17,12 +19,6 @@ class CartItemsController < ApplicationController
 			flash[:notice] = "カートに商品を追加しました"
 			redirect_to :cart_items
 		end
-		#else
-		#	session[:cart_item] = @cart_item.attributes.slice(*cart_item_params.keys)
-		#	@categories = Category.all
-		#	@product = Product.find_by(id: @cart_item.product_id)
-		#	redirect_to product_path(@product.id), flash: {alert: '※個数を選択して下さい'}
-		#end
 
 	def update
 		@cart_item = CartItem.find(params[:id])
