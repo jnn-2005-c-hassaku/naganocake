@@ -15,7 +15,9 @@ class ShippingAddressesController < ApplicationController
   	   redirect_to shipping_addresses_path(@shipping_address)
      else
        render :index
+     end
   end
+
 
   def edit
       @shipping_address = ShippingAddress.find(params[:id])
