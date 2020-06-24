@@ -2,6 +2,7 @@
 	<h2  class="midashi_txt">会員詳細</h2>
 		   <table>
 			   	<tbody>
+			   		<%= render 'layouts/errors', obj: @customer %>
 			   			<%= form_for(@customer) do |f| %>
 
 			   			  <tr>

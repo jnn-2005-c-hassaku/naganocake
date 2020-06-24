@@ -2,9 +2,9 @@
   <div class="form">
   <div class="form_cont">
      <h2 class="form_midashi_txt center bold">注文情報入力</h2>
+     <%= render 'layouts/errors', obj: @order %>
       <div class="form">
   <h4 class="bold brown_txt">支払い方法</h4>
-  <%= render 'layouts/errors', obj:@order %>
  <%= form_for @order, url: confirm_orders_path , method: :get do |f| %>
 <%= radio_button_tag :pay_types, 1 %>
 <%= label_tag :クレジットカード %><br>
