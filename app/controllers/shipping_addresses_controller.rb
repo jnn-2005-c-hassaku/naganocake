@@ -14,6 +14,9 @@ class ShippingAddressesController < ApplicationController
   	   flash[:notice] = "配送先を追加しました"
   	   redirect_to shipping_addresses_path(@shipping_address)
      else
+       @customer = current_customer
+       @shipping_addresses = @customer.shipping_addresses
+       @shipping_address = ShippingAddress.new
        render :index
      end
   end

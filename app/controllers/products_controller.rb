@@ -1,4 +1,6 @@
 class ProductsController < ApplicationController
+before_action :authenticate_customer!
+
 	def index
 		@products = Product.all.page(params[:page])
 	end
@@ -9,14 +11,8 @@ class ProductsController < ApplicationController
 		@order_item = OrderItem.new
 	end
 
-	#def update
-	#    @product = Product.find(params[:id])
-	#    @product.update(product_params)
-	# render template: "cart_items/add_cart_item"
-	#end
-
- private
-def product_params
-	params.require(:product).permit(:name,:description,:price,:image,:category_id,:sale_status)
-end
+	 private
+	def product_params
+		params.require(:product).permit(:name,:description,:price,:image,:category_id,:sale_status)
+	end
 end
