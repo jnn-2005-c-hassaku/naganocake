@@ -1,0 +1,72 @@
+<div class="row order_confirm">
+	<h2  class="midashi_txt">会員情報編集</h2>
+		   <table>
+			   	<tbody>
+			   		<tr>
+			   			<%= form_for (@customer), url: admins_customer_path do |f| %>
+
+			   			  <tr>
+					        <td class="field">
+					          <%= f.label :ID, "会員ID", class: "form_label" %></td>
+					          <td><%= @customer.id %>
+					      </tr>
+
+			   			  <tr>
+					        <td class="field">
+					          <%= f.label :full_name, "氏名", class: "form_label" %></td>
+					          <td><%= f.text_field :first_name %></td>
+					          <td><%= f.text_field :last_name %></td>
+					      </tr>
+                          
+                          <tr>
+					        <td class="field">
+					          <%= f.label :full_name_kana, "フリガナ", class: "form_label" %></td>
+					          <td><%= f.text_field :first_name_kana %></td>
+					          <td><%= f.text_field :last_name_kana %></td>
+					      </tr>
+
+                          <tr>
+					        <td class="field">
+					          <%= f.label :postcode, "郵便番号", class: "form_label" %></td>
+					          <td><%= f.text_field :postcode %></td>
+					      </tr>
+
+					      <tr>
+					        <td class="field">
+					          <%= f.label :address, "住所", class: "form_label" %></td>
+					         <td><%= f.text_field :address %></td>
+					      </tr>
+
+					      <tr>
+					        <td class="field">
+					          <%= f.label :phone_number, "電話番号", class: "form_label" %></td>
+					         <td><%= f.text_field :phone_number %></td>
+					      </tr>
+					       
+					      <tr>
+					        <td class="field">
+					          <%= f.label :email, "メールアドレス", class: "form_label" %></td>
+					        <td><%= f.text_field :email %></td>
+					      </tr>
+				            
+				          <tr>
+					        <td class="field">
+					          <%= f.label :account_stutas, "会員ステータス", class: "form_label" %></td>
+					          <td>
+						      <%= f.radio_button :account_status, :true %>
+						      <%= f.label :account_status, "有効", {value: :true, style: "display: inline-block;"} %>
+						      <%= f.radio_button :account_status, :false %>
+						      <%= f.label :account_status, "退会済み", {value: :false, style: "display: inline-block;"} %>
+						    </td>
+					      </tr>
+　　　　　　　　　　　　　　　　
+　　　　　　　　　　　　　　　　<tr>
+					       <td>
+					        <%= f.submit "変更を保存する", class: "form_submit_s white_txt bold" %>
+                           </td>
+                          </tr>
+				        <% end %>
+				    </tr>   
+			   	</tbody>
+		   </table>
+</div>
