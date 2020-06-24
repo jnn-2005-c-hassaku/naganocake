@@ -12,7 +12,7 @@ end
 
 def new
 	@product = Product.new
-	@categories = Category.all
+	@categories = Category.where(active_status: :true)
 end
 
 def create
@@ -27,7 +27,7 @@ end
 
 def edit
 	@product = Product.find(params[:id])
-	@categories = Category.all
+	@categories = Category.where(active_status: :true)
 end
 
 
