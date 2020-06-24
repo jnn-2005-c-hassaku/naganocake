@@ -9,13 +9,14 @@ class Admins::CategoriesController < ApplicationController
 	def create
 		@category = Category.new(category_params)
 		if @category.save
-			flash[:notice] = "You have creatad category successfully."
-			redirect_to admins_categories_path
+		　flash[:notice] = "カテゴリーを追加しました"
+		　redirect_to admins_categories_path
 		else
-			@categories = Category.all
-			render 'index'
+		　@categories = Category.all
+		　render :index
 		end
 	end
+
 	def show
 		@category = Category.find(params[:id])
 		@products = @category.products
@@ -28,10 +29,10 @@ class Admins::CategoriesController < ApplicationController
 	def update
 		@category = Category.find(params[:id])
 		if @category.update(category_params)
-			flash[:notice] = "You have updated category successfully."
-			redirect_to admins_categories_path
+		　flash[:notice] = "カテゴリーを更新しました"
+		　redirect_to admins_categories_path
 		else
-			render 'edit'
+		　render :edit
 		end
 	end
 
