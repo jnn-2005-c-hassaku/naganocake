@@ -22,7 +22,7 @@ before_action :authenticate_admin!
 	  def destroy
   	@order = Order.find(params[:id])
   	@order.destroy
-  	redirect_to admins_orders_path, notice: "successfully delete book!"
+  	redirect_to admins_orders_path, notice: "購入ステータスを削除しました"
   end
 
 	private
