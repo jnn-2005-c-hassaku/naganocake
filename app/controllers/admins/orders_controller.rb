@@ -19,6 +19,12 @@ before_action :authenticate_admin!
 	    end
 	end
 
+	  def destroy
+  	@order = Order.find(params[:id])
+  	@order.destroy
+  	redirect_to admins_orders_path, notice: "successfully delete book!"
+  end
+
 	private
 		def order_params
 			params.require(:order).permit(:address,:postcode,:direction,:buy_status,
