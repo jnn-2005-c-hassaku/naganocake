@@ -16,7 +16,10 @@
 		      <% @customers.each do |customer| %>
 		      <tr>
 				<td><%= customer.id %></td>
-				<td><%= customer.name_all %></td>
+				<td><%= link_to admins_customer_path(customer) , class: "link_txt" do %>
+					<%= customer.name_all%>
+						<% end %>
+					</td>
 				<td><%= customer.email %></td>
                 <td>
                   <% if customer.account_status == true %>

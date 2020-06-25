@@ -1,8 +1,8 @@
 <div class="row shipping_address">
 
    <h2 class="midashi_txt">配送先一覧</h2>
-   <%= render 'layouts/errors', obj: @shipping_address %>
      <div class="form_cont">
+       <%= render 'layouts/errors', obj: @shipping_address %>
         <%= form_for(@shipping_address) do |f| %>
         <div class="field">
           <%= f.label :direction, "宛名", class: "form_label" %>
@@ -18,7 +18,7 @@
         </div>
 
         <div class="actions">
-             <%= f.submit "編集", class: "form_submit white_txt bold" %>
+             <%= f.submit "更新する", class: "form_submit white_txt bold" %>
         </div>
          <% end %>
     </div>

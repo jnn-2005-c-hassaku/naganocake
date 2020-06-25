@@ -60,9 +60,7 @@ h2 {
 h3 {
 	margin: 40px 0px;
 }
-.error_messages {
-	color: #333;
-}
+
 .midashi_txt {
 	color: #C39C89;
 	font-size: 23px;
@@ -208,6 +206,12 @@ h3 {
 	background-color:  #c26261;
 	color: #f0f0f0;
 }
+.link_txt {
+	color: #799aed;
+}
+.link_txt:hover {
+	color:#5e73ad;
+}
 /*--------------共通のテーブル--------------------*/
 .table {
 	margin: 20px auto;
@@ -215,7 +219,18 @@ h3 {
 .thead {
 	background-color: #EEE2D3;
 }
-
+.cont-width {
+	width: 80%;
+	margin: 0 auto;
+}
+.table_width {
+	width: 50%;
+	margin-left: 20px;
+}
+.table_noborder > tbody > tr > th,
+.table_noborder > tbody > tr > td {
+	border-top: none!important;
+}
 /*--------------共通(ヘッダー用）--------------------*/
 header{
 	width: 100%;
@@ -414,13 +429,14 @@ border: solid 3px #de8152;
 .form_link {
 	text-align: center;
 }
-
-/*--------------カテゴリー一覧--------------------*/
+/*--------------管理者ページのスペース--------------------*/
 .category,
 .product,
-.customer{
+.customer,
+.admin-order{
 	margin: 5% 0px;
 }
+/*--------------カテゴリー一覧--------------------*/
 .category_table {
 	width: 60%;
 }
@@ -436,8 +452,9 @@ border: solid 3px #de8152;
 	margin-right: 5%;
 }
 .cart_item,
-.mypage {
-	margin-bottom: 5% ;
+.mypage,
+.shipping_address {
+	margin-bottom: 5%;
 }
 .cart_items_flex {
 	display: flex;
@@ -475,9 +492,6 @@ border: solid 3px #de8152;
 
 @media(max-width: 770px) {
 
-table {
-	width: 80%;
-}
 .midashi_txt {
 	text-align: center;
 	background-position: center;
@@ -526,6 +540,7 @@ table {
 .product_img_s {
 	width: 50px;
 }
+/*--------------管理者ページのスペース--------------------*/
 .product,
 .category,
 .cart_item,
@@ -555,5 +570,9 @@ table {
 }
 .product_right {
 	margin-bottom: 5%;
+}
+.table_width {
+	width: 80%;
+	margin: 0 auto;
 }
 }

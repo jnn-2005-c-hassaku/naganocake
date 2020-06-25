@@ -1,8 +1,8 @@
-<div class="row shipping_address">
-
+<div class="container">
+<div class= "row shipping_address">
    <h2 class="midashi_txt">配送先一覧</h2>
-    <%= render 'layouts/errors', obj: @shipping_address %>
      <div class="form_cont">
+       <%= render 'layouts/errors', obj: @shipping_address %>
         <%= form_for(@shipping_address) do |f| %>
         <div class="field">
           <%= f.label :direction, "宛名", class: "form_label" %>
@@ -23,7 +23,7 @@
          <% end %>
     </div>
 
-    <table class="table">
+    <table class="table txts table-hover table-inverse" >
           <thead class="thead">
                 <tr>
                 <th class="brown_txt txts">宛名</th>
@@ -46,13 +46,14 @@
                   <%= shipping_address.address %>
              	</td>
              	<td>
-             	  <%= link_to "編集する", edit_shipping_address_path(shipping_address), class: "edit_btn" %>
+             	  <%= link_to "編集", edit_shipping_address_path(shipping_address), class: "edit_btn" %>
              	</td>
              	<td>
-             	  <%= link_to "削除する", shipping_address_path(shipping_address), method: :delete, "data-confirm" => 'Are you sure?', class: "destroy_btn" %>
+             	  <%= link_to "削除", shipping_address_path(shipping_address), method: :delete, "data-confirm" => 'Are you sure?', class: "destroy_btn" %>
              	</td>
              </tr>
               <% end %>
+            </tboby>
     </table>
 </div>
 </div>
