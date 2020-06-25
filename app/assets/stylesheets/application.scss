@@ -462,9 +462,9 @@ border: solid 3px #de8152;
 }
 /*--------------thanksページ--------------------*/
 .thanks {
-	background-image: url(purin.jpg);
+	background-image: url(thanks_bg.jpg);
 	height: 100vh;
-	background-size: cover;
+	background-size: contain;
 	background-position: center;
 	background-repeat: no-repeat;
 }
@@ -574,5 +574,8 @@ border: solid 3px #de8152;
 .table_width {
 	width: 80%;
 	margin: 0 auto;
+}
+.thanks {
+	background-image: url(thanks_bg2.jpg);
 }
 }
