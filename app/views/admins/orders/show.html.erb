@@ -54,8 +54,8 @@
 
 					<td><%= number_to_currency(order_item.subtotal(order_item.tax_inclueded_price,order_item.quantity), unit: "", strip_insignificant_zeros: true)  %></td>
 
-					<td><%= form_for order_item ,url: order_items_path do |f| %>
-						<%= f.select :make_status, options_for_select((1..4), {selected: order_item.make_status.to_i} ) %>
+					<td><%= form_for :order_item  do |f| %>
+						<%= f.select :make_status, options_for_select(OrderItem.make_statuses), {} %>
 						<%= f.submit "更新" , class: "edit_btn submit_btn bold"%></td>
 					<% end %>
 				</tr>

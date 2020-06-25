@@ -60,7 +60,6 @@ before_action :authenticate_customer!
 	end
 
 	def thanks
-
 	end
 
 	def show
