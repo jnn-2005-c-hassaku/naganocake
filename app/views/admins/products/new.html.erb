@@ -1,8 +1,8 @@
 <div class="row product">
 
  <h2 class="midashi_txt">商品登録</h2>
- <%= render 'layouts/errors', obj: @product %>
 <div class="form_cont">
+   <%= render 'layouts/errors', obj: @product %>
     <%= form_for (@product), url: admins_products_path do |f| %>
     <div class="field">
       <%= f.label :name, "商品名", class: "form_label" %>

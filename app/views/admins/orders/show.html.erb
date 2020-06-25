@@ -1,31 +1,30 @@
-<h1>注文履歴詳細</h1>
-
-
-購入者
-<%= @order.customer.name_all %>
-
-配送先
-<%= @order.postcode %><%= @order.address %><%= @order.direction %>
-
-支払い方法
-<%= @order.pay_type %>
-
-
-
-
-注文ステータス
-
-<%= form_for (@order), url: admins_order_path do |f| %>
-	<%#enum用のセレクトらしい%>
-	<%= f.select :buy_status, Order.buy_statuses.keys, :selected=>Order.buy_statuses[@order.buy_status] %>
-<%#初期値設定まだしてない%>
-	<%= f.submit "更新" %></td>
-<% end %>
-
-
-
+<div class="row admin-order">
 	<h2 class="midashi_txt">注文情報詳細</h2>
-	<div class="col-sm-8">
+	<table class="table table-hover table_width table_noborder">
+		<tr>
+			<th class="bold">購入者</th>
+			<td><%= @order.customer.name_all %></td>
+		</tr>
+		<tr>
+			<th class="bold">配送先住所</th>
+			<td><%= @order.postcode %><%= @order.address %><br><%= @order.direction %></td>
+		</tr>
+		<tr>
+			<th class="bold">支払い方法</th>
+			<td><%= @order.pay_type %></td>
+		</tr>
+		<tr>
+			<th class="bold">注文ステータス</th>
+			<td><%= form_for (@order), url: admins_order_path do |f| %>
+				<%#enum用のセレクトらしい%>
+				<%= f.select :buy_status, Order.buy_statuses.keys, :selected=>Order.buy_statuses[@order.buy_status] %><%#初期値設定まだしてない%>
+				<%= f.submit "更新" %><% end %>
+			</td>
+		</table>
+
+
+
+	<div class="col-sm-9">
 		<table class="table product_table txts table-inverse">
 
 			<thead class="thead">
@@ -49,10 +48,11 @@
 
 					<td><%= number_to_currency(order_item.tax_inclueded_price, unit: "", strip_insignificant_zeros: true) %></td><%#税込金額を表示%>
 
+					<% @sum += order_item.subtotal(order_item.tax_inclueded_price,order_item.quantity) %>
 
 					<td><%= order_item.quantity %>個</td>
 
-					<td><%= number_to_currency(order_item.subtotal(order_item.product.price,order_item.quantity), unit: "", strip_insignificant_zeros: true)  %></td>
+					<td><%= number_to_currency(order_item.subtotal(order_item.tax_inclueded_price,order_item.quantity), unit: "", strip_insignificant_zeros: true)  %></td>
 
 					<td><%= form_for order_item ,url: order_items_path do |f| %>
 						<%= f.select :make_status, options_for_select((1..4), {selected: order_item.make_status.to_i} ) %>
@@ -68,7 +68,7 @@
 		</table>
 	</div>
 
-	<div class="col-sm-4">
+	<div class="col-sm-3">
 		<table class="table product_table txts table-inverse table-bordered">
 			<tr>
 				<th class="brown_txt txts thead">送料</th>
@@ -86,3 +86,4 @@
 			</tr>
 		</table>
 	</div>
+</div>

@@ -4,7 +4,9 @@ class Order < ApplicationRecord
 	has_many :order_items,  dependent: :destroy
 	accepts_nested_attributes_for :order_items, allow_destroy: true
 
-
+def subtotal(price,quantity)
+		(price * quantity).ceil
+	end
 
 
 validates :pay_type,:address,:direction, presence: true

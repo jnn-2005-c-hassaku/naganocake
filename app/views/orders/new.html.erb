@@ -3,9 +3,9 @@
     <div class="form_cont">
      <h2 class="form_midashi_txt center bold">注文情報入力</h2>
      <%= render 'layouts/errors', obj: @order %>
-     <div class="form">
+       <%= form_for @order, url: confirm_orders_path , method: :get do |f| %>
+     <div class="form_area">
       <h4 class="bold brown_txt">支払い方法</h4>
-      <%= form_for @order, url: confirm_orders_path , method: :get do |f| %>
       <%= radio_button_tag :pay_types, 1,　checked="checked" %>
       <%= label_tag :クレジットカード %><br>
 

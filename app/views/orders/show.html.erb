@@ -23,7 +23,7 @@
 					<td><%= order_item.product.name %></td>
 
 					<td><%= number_to_currency(order_item.tax_inclueded_price, unit: "", strip_insignificant_zeros: true) %></td><%#税込金額を表示%>
-
+					<% @sum += order_item.subtotal(order_item.tax_inclueded_price,order_item.quantity) %>
 
 					<td><%= order_item.quantity %>個</td>
 
