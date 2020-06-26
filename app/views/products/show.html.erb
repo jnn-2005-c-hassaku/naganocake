@@ -11,6 +11,10 @@
       <p class="txts"><%= @product.description %></p><br>
 
       <p class="txtm true_txt">¥<%= @product.price_with_tax(@product.price) %>円(税込）</p>
+       <% if @product.sale_status == false %>
+        <p>売り切れ中</p>
+      <% else %>
+
       <%= form_for @cart_item do |f| %>
 
       <p><%= f.hidden_field :product_id, value: @product.id %></p>
@@ -18,6 +22,7 @@
       <p><%= f.select :quantity, options_for_select(1..20), include_blank: "個数選択" %><%= f.submit "カートに入れる" %></p>
 
       <% end %>
+     <% end %>
     </div>
   </div>
 </div>
