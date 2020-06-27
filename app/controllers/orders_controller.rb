@@ -42,6 +42,7 @@ class OrdersController < ApplicationController
 
 	def create
 		@order = Order.new(order_params)
+		@shipping_address = current_customer.shipping_addresses.new#
 		#order_itemsのnew設定はここ,これでOrderのcreate時一緒に保存される
 		@cart_items = CartItem.where(customer_id: current_customer.id)
 		@cart_items.each do |cart_item|
@@ -52,11 +53,20 @@ class OrdersController < ApplicationController
 			@order_item.tax_inclueded_price = @product.price_with_tax(@product.price)
 		end
 		@order.customer_id = current_customer.id
+#confirmから３  条件分岐
+		if 
+			@shipping_address.address = @order.address#
+			@shipping_address.postcode = @order.postcode#
+			@shipping_address.direction = @order.direction#
+			@shipping_address.save#
 
-		if @order.save
+		end
+
+			@order.save
+			#binding.pry
 			@cart_items.destroy_all
 			redirect_to thanks_orders_path
-		end
+
 	end
 
 
