@@ -82,6 +82,7 @@
 	<%= f.hidden_field :direction, value: @order.direction %>
 	<%= f.hidden_field :pay_type, value: @order.pay_type %>
 	<%= f.hidden_field :buy_status, value: :入金待ち %>
+	<%= f.hidden_field :make_status, value: :着手不可 %>
 	<%= f.hidden_field :postage, value: @order.postage %>
 	<%= f.hidden_field :total_price, value: @order.postage + @sum  %>
 <%#hidden消したよ%>

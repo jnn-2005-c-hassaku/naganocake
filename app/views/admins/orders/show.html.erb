@@ -16,8 +16,8 @@
 		<tr>
 			<th class="bold">注文ステータス</th>
 			<td><%= form_for (@order), url: admins_order_path do |f| %>
-				<%#enum用のセレクトらしい%>
-				<%= f.select :buy_status, Order.buy_statuses.keys, :selected=>Order.buy_statuses[@order.buy_status] %><%#初期値設定まだしてない%>
+				<%#enum用のセレクトです%>
+				<%= f.select :buy_status, Order.buy_statuses.keys, :selected=>@order.buy_status %>
 				<%= f.submit "更新" %><% end %>
 			</td>
 		</table>
@@ -35,6 +35,7 @@
 					<th class="brown_txt txts">数量</th>
 					<th class="brown_txt txts">小計</th>
 					<th class="brown_txt txts">製作ステータス</th>
+
 				</tr>
 			</thead>
 
@@ -54,10 +55,9 @@
 
 					<td><%= number_to_currency(order_item.subtotal(order_item.tax_inclueded_price,order_item.quantity), unit: "", strip_insignificant_zeros: true)  %></td>
 
-					<td><%= form_for :order_item  do |f| %>
-						<%= f.select :make_status, options_for_select(OrderItem.make_statuses), {} %>
-						<%= f.submit "更新" , class: "edit_btn submit_btn bold"%></td>
-					<% end %>
+			<td><%= form_for order_item, url: admins_order_item_path(order_item) do |f| %>
+
+				<%= f.select :make_status, OrderItem.make_statuses.keys, :selected=>order_item.make_status %><%= f.submit "更新" %><% end %></td>
 				</tr>
 
 

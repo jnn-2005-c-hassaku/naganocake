@@ -12,18 +12,18 @@ before_action :authenticate_admin!
 	def update
 		@order = Order.find(params[:id])
 		if @order.update(update_order_params)
-		  flash[:notice] = "購入ステータスを更新しました"
-		  redirect_to admins_orders_path
+		flash[:notice] = "購入ステータスを更新しました"
+		redirect_to admins_orders_path
 		else
-	      render :show
-	    end
+		render :show
+		end
 	end
 
-	  def destroy
-  	@order = Order.find(params[:id])
-  	@order.destroy
-  	redirect_to admins_orders_path, notice: "注文をキャンセルしました"
-  end
+	def destroy
+		@order = Order.find(params[:id])
+		@order.destroy
+		redirect_to admins_orders_path, notice: "注文をキャンセルしました"
+	end
 
 	private
 		def order_params

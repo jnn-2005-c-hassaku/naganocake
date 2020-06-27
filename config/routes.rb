@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 		sessions: 'customers/sessions'
 	}
 	root 'home#top'
-    get 'customers/confirm' => 'customers/confirm'
+	get 'customers/confirm' => 'customers/confirm'
 	resources :products
 	resources :customers
 	put "/customers/:id/confirm" => "customers#hide", as: 'confirm_hide'
@@ -31,6 +31,7 @@ Rails.application.routes.draw do
 		resources :customers
 		resources :products
 		resources :orders
+		resources :order_items, only: [:update]
 		resources :categories
 	end
 end
