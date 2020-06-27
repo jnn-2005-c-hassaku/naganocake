@@ -1,5 +1,6 @@
 class OrdersController < ApplicationController
-before_action :authenticate_customer!
+	before_action :authenticate_customer!
+	before_action :cart_item_nil, only:[:new, :confirm, :create]
 
 	def new
 		@order = Order.new
@@ -55,7 +56,7 @@ before_action :authenticate_customer!
 		if @order.save
 			@cart_items.destroy_all
 			redirect_to thanks_orders_path
-		end
+		ends
 	end
 
 
@@ -76,6 +77,12 @@ before_action :authenticate_customer!
 	def order_params
 		params.require(:order).permit(:address,:postcode,:direction,:buy_status,
 			:pay_type,:postage,:total_price,:customer_id, [order_items_attribute: [:product_id, :quantity, :make_status, :tax_indlueded_price]])
+	end
+	def cart_item_nil
+		@cart_items = current_customer.cart_items.all
+		unless @cart_items.present?
+			render 'cart_items/index'
+		end
 	end
 
 
