@@ -70,7 +70,9 @@
 	</tr>
 		<tr>
 			<th>お届け先</th>
-			<td><%= @order.address %><%= @order.postcode %><br><%= @order.direction %></td>
+			<td>〒<%= @order.postcode %></br>
+				<%= @order.address %><br>
+				<%= @order.direction %>様</td>
 	</tr>
 </table>
 </div>

@@ -18,11 +18,12 @@ end
 def create
 	@product = Product.new(product_params)
 	if @product.save
-	  flash[:notice] = "商品を追加しました"
-	  redirect_to admins_products_path
-    else
-      render :index
-    end
+	flash[:notice] = "商品を追加しました"
+	redirect_to admins_product_path(@product)
+	else
+		@categories = Category.where(active_status: :true)
+		render :new
+	end
 end
 
 def edit
