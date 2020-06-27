@@ -8,6 +8,11 @@ before_action :authenticate_customer!
 	def create
 		@cart_item = current_customer.cart_items.build(cart_item_params)
 		@cart_items = current_customer.cart_items.all
+
+	unless @cart_item.quantity.present?
+		@product = Product.find(@cart_item.product_id)
+		render "products/show"
+	else			#byebug
 		@cart_items.each do |cart_item|
 			if cart_item.product_id == @cart_item.product_id
 			add_quantity = cart_item.quantity + @cart_item.quantity
@@ -19,6 +24,7 @@ before_action :authenticate_customer!
 			flash[:notice] = "カートに商品を追加しました"
 			redirect_to :cart_items
 		end
+	end
 
 	def update
 		@cart_item = CartItem.find(params[:id])

@@ -47,7 +47,6 @@ before_action :authenticate_customer!
 			@order_item = @order.order_items.build
 			@product = Product.find_by(id: cart_item.product_id)
 			@order_item.product = @product
-			@order_item.make_status = 1#0だと入らない
 			@order_item.quantity = cart_item.quantity
 			@order_item.tax_inclueded_price = @product.price_with_tax(@product.price)
 		end
@@ -56,8 +55,9 @@ before_action :authenticate_customer!
 			@cart_items.destroy_all
 			redirect_to thanks_orders_path
 		end
-
 	end
+
+
 
 	def thanks
 	end
