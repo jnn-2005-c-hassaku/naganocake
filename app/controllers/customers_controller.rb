@@ -6,6 +6,7 @@ before_action :authenticate_customer!
 
   def hide
       @customer = Customer.find(params[:id])
+      @customer.account_status = false
       @customer.update(is_deleted: true)
       reset_session
       flash[:notice] = "ありがとうございました。またのご利用お待ちしております。"
