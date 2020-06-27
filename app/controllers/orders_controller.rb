@@ -36,6 +36,7 @@ class OrdersController < ApplicationController
 			@order.address = params[:address3]
 			@order.postcode = params[:postcode3]
 			@order.direction = params[:direction3]
+			@order.newaddress = 3
 		end
 
 	end
@@ -54,46 +55,45 @@ class OrdersController < ApplicationController
 		end
 		@order.customer_id = current_customer.id
 #confirmから３  条件分岐
-		if 
+if params[:order][:newaddress] == "3"
 			@shipping_address.address = @order.address#
 			@shipping_address.postcode = @order.postcode#
 			@shipping_address.direction = @order.direction#
-			@shipping_address.save#
+			@shipping_address.save
 
 		end
-
-			@order.save
+		@order.save
 			#binding.pry
 			@cart_items.destroy_all
 			redirect_to thanks_orders_path
 
-	end
-
-
-
-	def thanks
-	end
-
-	def show
-		@order = Order.find(params[:id])
-	end
-
-	def index
-		@orders = Order.where(customer_id: current_customer.id)
-	end
-
-
-	private
-	def order_params
-		params.require(:order).permit(:address,:postcode,:direction,:buy_status,
-			:pay_type,:postage,:total_price,:customer_id, [order_items_attribute: [:product_id, :quantity, :make_status, :tax_indlueded_price]])
-	end
-	def cart_item_nil
-		@cart_items = current_customer.cart_items.all
-		unless @cart_items.present?
-			render 'cart_items/index'
 		end
+
+
+
+		def thanks
+		end
+
+		def show
+			@order = Order.find(params[:id])
+		end
+
+		def index
+			@orders = Order.where(customer_id: current_customer.id)
+		end
+
+
+		private
+		def order_params
+			params.require(:order).permit(:address,:postcode,:direction,:buy_status,
+				:pay_type,:postage,:total_price,:customer_id, [order_items_attribute: [:product_id, :quantity, :make_status, :tax_indlueded_price]])
+		end
+		def cart_item_nil
+			@cart_items = current_customer.cart_items.all
+			unless @cart_items.present?
+				render 'cart_items/index'
+			end
+		end
+
+
 	end
-
-
-end
