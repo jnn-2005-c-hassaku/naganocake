@@ -56,7 +56,7 @@ class OrdersController < ApplicationController
 		if @order.save
 			@cart_items.destroy_all
 			redirect_to thanks_orders_path
-		ends
+		end
 	end
 
 
