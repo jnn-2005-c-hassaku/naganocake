@@ -31,7 +31,7 @@ Rails.application.routes.draw do
 		resources :customers
 		resources :products
 		resources :orders
-		resources :order_items, only: [:update]
+		resources :order_items, only: [:update]#IDがない為resourceから変更
 		resources :categories
 	end
 end

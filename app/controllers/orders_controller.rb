@@ -51,6 +51,7 @@ before_action :authenticate_customer!
 			@order_item.tax_inclueded_price = @product.price_with_tax(@product.price)
 		end
 		@order.customer_id = current_customer.id
+
 		if @order.save
 			@cart_items.destroy_all
 			redirect_to thanks_orders_path
