@@ -57,6 +57,11 @@
 	</div>
 	<div class="col-sm-8">
 		<table class="table borderless">
+			</tr>
+		<tr>
+			<th>注文日</th>
+			<td><%= @order.created_at.to_s(:datetime_jp) %></td>
+	</tr>
 			<tr>
 				<th class="col-span-3">支払い方法</th>
 			<td>
@@ -70,6 +75,11 @@
 		<tr>
 			<th>お届け先</th>
 			<td><%= @order.address %><%= @order.postcode %><br><%= @order.direction %></td>
+	</tr>
+	</tr>
+		<tr>
+			<th>ステータス</th>
+			<td><%= @order.buy_status %></td>
 	</tr>
 </table>
 </div>
