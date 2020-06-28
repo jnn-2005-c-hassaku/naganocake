@@ -11,7 +11,8 @@
       </div>
       <div class="product_index">
            <h2 class="midashi_txt brown_txt bold">おすすめ商品</h2>
-           <%= render "products/productlist", products: Product.page(params[:page]).reverse_order.per(6) %>
+           <%= render "products/productlist", products: @products %>
     </div>
 </div>
+ <div class='text-center'><%= paginate @products, class: "paginate" %></div>
 </div>

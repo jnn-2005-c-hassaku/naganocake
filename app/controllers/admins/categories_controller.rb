@@ -3,7 +3,7 @@ class Admins::CategoriesController < ApplicationController
 
 	def index
 		@category = Category.new
-		@categories = Category.all
+		@categories = Category.all.page(params[:page]).reverse_order
 	end
 
 	def create
@@ -19,7 +19,7 @@ class Admins::CategoriesController < ApplicationController
 
 	def show
 		@category = Category.find(params[:id])
-		@products = @category.products
+		@products = @category.products.page(params[:page]).reverse_order
 	end
 
 	def edit
