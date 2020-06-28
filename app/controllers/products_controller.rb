@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
 
 	def index
-		@products = Product.all.page(params[:page])
+		@products = Product.page(params[:page]).reverse_order.per(9)
 	end
 
 	def show

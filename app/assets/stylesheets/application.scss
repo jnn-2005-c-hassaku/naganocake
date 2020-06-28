@@ -468,9 +468,37 @@ border: solid 3px #de8152;
 	background-position: center;
 	background-repeat: no-repeat;
 }
-/*--------------退会確認--------------------*/
+/*--------------ページネーション--------------------*/
 .customer-confirm {
 	margin: 20% 0px;
+}
+/*--------------退会確認--------------------*/
+/*ページネーション自体のデザイン*/
+.pagination>li>a {          
+  border: none;     /*枠線をなくす*/
+  color: #696969;   /*文字の色を変える*/
+}
+
+/* 表示しているページ番号のデザイン */
+.pagination>.active>a {
+  background: #E7B091;     /*背景の色を変える*/
+  border-radius: 15px;     /*角を丸くする*/
+}
+
+/*ホバー時のデザイン*/
+.pagination>li>a:hover {        
+  border-radius: 15px; 
+  background-color: #e8e8e8!important;
+  color: #333;
+}
+.pagination > li:first-child > a, .pagination > li:first-child > span {
+    margin-left: 0;
+    border-bottom-left-radius: 15px;
+    border-top-left-radius: 15px;
+}
+.pagination > li:last-child > a, .pagination > li:last-child > span {
+    border-bottom-right-radius: 15px;
+    border-top-right-radius: 15px;
 }
 /*--------------モバイル版--------------------*/
 

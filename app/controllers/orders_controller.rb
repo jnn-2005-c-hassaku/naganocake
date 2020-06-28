@@ -79,7 +79,7 @@ if params[:order][:newaddress] == "3"
 		end
 
 		def index
-			@orders = Order.where(customer_id: current_customer.id)
+			@orders = Order.where(customer_id: current_customer.id).page(params[:page]).reverse_order
 		end
 
 
