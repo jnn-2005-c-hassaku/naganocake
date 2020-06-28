@@ -11,7 +11,7 @@
       </div>
       <div class="product_index">
            <h2 class="midashi_txt brown_txt bold">おすすめ商品</h2>
-           <%= render "products/productlist", products: Product.all %>
+           <%= render "products/productlist", products: Product.page(params[:page]).reverse_order.per(6) %>
     </div>
 </div>
 </div>
