@@ -11,7 +11,13 @@ before_action :authenticate_admin!
 
 	def update
 		@order = Order.find(params[:id])
-		if @order.update(update_order_params)
+		@order_items = OrderItem.where(order_id: @order.id)
+		if params[:order][:buy_status] == "入金確認"
+			@order_items.update_all(make_status: "製作待ち")
+		elsif params[:order][:buy_status] == "発送済"
+			@order_items.update_all(make_status: "発送済")
+		end
+		if @order.update(order_params)
 		flash[:notice] = "購入ステータスを更新しました"
 		redirect_to admins_orders_path
 		else
@@ -29,11 +35,6 @@ before_action :authenticate_admin!
 		def order_params
 			params.require(:order).permit(:address,:postcode,:direction,:buy_status,
 				:pay_type,:postage,:total_price,:customer_id, [order_items_attribute: [:product_id, :quantity, :make_status, :tax_indlueded_price]])
-
-		end
-		def update_order_params
-			params.require(:order).permit(:address,:postcode,:direction,:buy_status,
-				:pay_type,:postage,:total_price,:customer_id, [order_items_attribute: [:product_id, :quantity, :make_status, :tax_indlueded_price, :_destroy, :id]])
 
 		end
 end
