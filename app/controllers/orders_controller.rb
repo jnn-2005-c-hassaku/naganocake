@@ -98,7 +98,7 @@ if params[:order][:newaddress] == "3"
 
 		def address_nil
 			@order = Order.new
-			if (params[:address3].blank? || params[:postcode3].blank? || params[:direction3].blank?) && params[:newaddress] == “3”
+			if (params[:address3].blank? || params[:postcode3].blank? || params[:direction3].blank?) && params[:newaddress] == "3"
 	    	@customer = current_customer
 	    	render :new
 			end
