@@ -1,6 +1,7 @@
 class OrdersController < ApplicationController
 	before_action :authenticate_customer!
 	before_action :cart_item_nil, only:[:new, :confirm, :create]
+	before_action :address_nil, only:[:new, :confirm]
 
 	def new
 		@order = Order.new
@@ -95,5 +96,12 @@ if params[:order][:newaddress] == "3"
 			end
 		end
 
+		def address_nil
+			@order = Order.new
+			if (params[:address3].blank? || params[:postcode3].blank? || params[:direction3].blank?) && params[:newaddress] == “3”
+	    	@customer = current_customer
+	    	render :new
+			end
+		end
 
 	end

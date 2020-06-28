@@ -12,8 +12,8 @@ class Admins::CategoriesController < ApplicationController
 			flash[:notice] = "カテゴリーを追加しました"
 			redirect_to admins_categories_path
 		else
-		　@categories = Category.all
-		　render :index
+		  @categories = Category.all
+		  render :index
 		end
 	end
 
